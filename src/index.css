@@ -722,3 +722,10 @@ button {
 .read_more {
 	color: red !important;
 }
+
+.paid {
+	background: red !important;
+}
+.unPaid {
+	background: green !important;
+}

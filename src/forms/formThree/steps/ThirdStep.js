@@ -31,8 +31,10 @@ function ThirdStep({ setStep }) {
 						labelId='demo-simple-select-outlined-label'
 						id='demo-simple-select-outlined'
 						label='Age'
-						value={virtualArtData['state']}
-						onChange={(e) => setVirtualArtData({ ...virtualArtData, state: e.target.value })}
+						value={virtualArtData['date_of_authorship']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, date_of_authorship: e.target.value })
+						}
 					>
 						<MenuItem value=''>
 							<em>None</em>
@@ -58,8 +60,13 @@ function ThirdStep({ setStep }) {
 						labelId='demo-simple-select-outlined-label'
 						id='demo-simple-select-outlined'
 						label='Age'
-						value={virtualArtData['state']}
-						onChange={(e) => setVirtualArtData({ ...virtualArtData, state: e.target.value })}
+						value={virtualArtData['date_of_authorship']}
+						onChange={(e) =>
+							setVirtualArtData({
+								...virtualArtData,
+								date_of_authorship: e.target.value,
+							})
+						}
 					>
 						<MenuItem value=''>
 							<em>None</em>
@@ -103,9 +110,9 @@ function ThirdStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['initialPublishedYear']}
+					value={virtualArtData['date_of_authorship']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, initialPublishedYear: e.target.value })
+						setVirtualArtData({ ...virtualArtData, date_of_authorship: e.target.value })
 					}
 				/>
 				<TextField
