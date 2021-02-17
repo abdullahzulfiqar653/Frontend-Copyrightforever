@@ -38,7 +38,18 @@ function EighthStep({ setStep, setModal, modal }) {
 					color='secondary'
 					className='mr-3'
 				/>
-				<TextField label='Date' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					id='date'
+					label='Date'
+					type='date'
+					defaultValue='2017-05-24'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					InputLabelProps={{
+						shrink: true,
+					}}
+				/>
 			</div>
 			<div>
 				<TextField label=' Address' margin='normal' variant='outlined' color='secondary' />
@@ -52,7 +63,7 @@ function EighthStep({ setStep, setModal, modal }) {
 					className='mr-3'
 				/>
 				<FormControl className='mr-3' variant='outlined' margin='normal'>
-					<InputLabel id='demo-simple-select-outlined-label'>Age</InputLabel>
+					<InputLabel id='demo-simple-select-outlined-label'>State</InputLabel>
 					<Select
 						labelId='demo-simple-select-outlined-label'
 						id='demo-simple-select-outlined'
@@ -61,9 +72,54 @@ function EighthStep({ setStep, setModal, modal }) {
 						<MenuItem value=''>
 							<em>None</em>
 						</MenuItem>
-						<MenuItem value={10}>Ten</MenuItem>
-						<MenuItem value={20}>Twenty</MenuItem>
-						<MenuItem value={30}>Thirty</MenuItem>
+						<MenuItem value='Alabama'>Alabama</MenuItem>
+						<MenuItem value='Alaska'>Alaska</MenuItem>
+						<MenuItem value='Arizona'>Arizona</MenuItem>
+						<MenuItem value='California'>California</MenuItem>
+						<MenuItem value='Colorado'>Colorado</MenuItem>
+						<MenuItem value='Connecticut'>Connecticut</MenuItem>
+						<MenuItem value='Delaware'>Delaware</MenuItem>
+						<MenuItem value='Florida'>Florida</MenuItem>
+						<MenuItem value='Georgia'>Georgia</MenuItem>
+						<MenuItem value='Hawaii'>Hawaii</MenuItem>
+						<MenuItem value='Idaho'>Idaho</MenuItem>
+						<MenuItem value='Illinois'>Illinois</MenuItem>
+						<MenuItem value='Indiana'>Indiana</MenuItem>
+						<MenuItem value='Iowa'>Iowa</MenuItem>
+						<MenuItem value='Kansas'>Kansas</MenuItem>
+						<MenuItem value='Kentucky'>Kentucky</MenuItem>
+						<MenuItem value='Louisiana'>Louisiana</MenuItem>
+						<MenuItem value='Maine'>Maine</MenuItem>
+						<MenuItem value='Maryland'>Maryland</MenuItem>
+						<MenuItem value='Massachusetts'>Massachusetts</MenuItem>
+						<MenuItem value='Michigan'>Michigan</MenuItem>
+						<MenuItem value='Minnesota'>Minnesota</MenuItem>
+						<MenuItem value='Mississippi'>Mississippi</MenuItem>
+						<MenuItem value='Missouri'>Missouri</MenuItem>
+						<MenuItem value='Montana'>Montana</MenuItem>
+						<MenuItem value='Nebraska'>Nebraska</MenuItem>
+						<MenuItem value='Nevada'>Nevada</MenuItem>
+						<MenuItem value='New Hampshire'>New Hampshire</MenuItem>
+						<MenuItem value='New Mexico'>New Mexico</MenuItem>
+						<MenuItem value='New York'>New York</MenuItem>
+						<MenuItem value='North Carolina'>North Carolina</MenuItem>
+						<MenuItem value='North Dakota'>North Dakota</MenuItem>
+						<MenuItem value='Ohio'>Ohio</MenuItem>
+						<MenuItem value='Oklahoma'>Oklahoma</MenuItem>
+						<MenuItem value='Oregon'>Oregon</MenuItem>
+						<MenuItem value='Pennsylvania'>Pennsylvania</MenuItem>
+						<MenuItem value='Rhoda Island'>Rhoda Island</MenuItem>
+						<MenuItem value='South Carolina'>South Carolina</MenuItem>
+						<MenuItem value='South Dakota'>South Dakota</MenuItem>
+						<MenuItem value='Tennessee'>Tennessee</MenuItem>
+						<MenuItem value='Texas'>Texas</MenuItem>
+						<MenuItem value='Utah'>Utah</MenuItem>
+						<MenuItem value='Vermont'>Vermont</MenuItem>
+						<MenuItem value='Virginia'>Virginia</MenuItem>
+						<MenuItem value='Washington'>Washington</MenuItem>
+						<MenuItem value='West Virginia'>West Virginia</MenuItem>
+						<MenuItem value='Wisconsin'>Wisconsin</MenuItem>
+						<MenuItem value='Wyoming'>Wyoming</MenuItem>
 					</Select>
 				</FormControl>
 				<TextField label='Zip Code' margin='normal' variant='outlined' color='secondary' />

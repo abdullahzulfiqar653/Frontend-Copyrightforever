@@ -1,9 +1,10 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
+
 import { multiStepContext } from '../FormThree.js';
 
 function FirstStep({ setStep }) {
-	const { userData, setUserData } = useContext(multiStepContext);
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3> About Your Work</h3>
@@ -13,8 +14,8 @@ function FirstStep({ setStep }) {
 				margin='normal'
 				variant='outlined'
 				color='secondary'
-				value={userData['titleOfYourWork']}
-				onChange={(e) => setUserData({ ...userData, titleOfYourWork: e.target.value })}
+				value={virtualArtData['title_of_work']}
+				onChange={(e) => setVirtualArtData({ ...virtualArtData, title_of_work: e.target.value })}
 			/>
 
 			<TextField
@@ -22,8 +23,8 @@ function FirstStep({ setStep }) {
 				margin='normal'
 				variant='outlined'
 				color='secondary'
-				value={userData['priorTitle']}
-				onChange={(e) => setUserData({ ...userData, priorTitle: e.target.value })}
+				value={virtualArtData['prior_title']}
+				onChange={(e) => setVirtualArtData({ ...virtualArtData, prior_title: e.target.value })}
 			/>
 
 			<FormLabel className='mt-4' style={{ lineHeight: '1.6' }} component='legend'>
@@ -36,8 +37,8 @@ function FirstStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['volume']}
-					onChange={(e) => setUserData({ ...userData, volume: e.target.value })}
+					value={virtualArtData['volume']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, volume: e.target.value })}
 				/>
 				<TextField
 					className='mr-3'
@@ -45,32 +46,38 @@ function FirstStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['number']}
-					onChange={(e) => setUserData({ ...userData, number: e.target.value })}
+					value={virtualArtData['number']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, number: e.target.value })}
 				/>
 				<TextField
+					id='date'
+					className='mr-3'
 					label='Issue Date'
+					type='date'
+					defaultValue='2017-05-24'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					className='mr-3'
-					value={userData['issueDate']}
-					onChange={(e) => setUserData({ ...userData, issueDate: e.target.value })}
+					InputLabelProps={{
+						shrink: true,
+					}}
+					value={virtualArtData['issue_date']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, issue_date: e.target.value })}
 				/>
 				<TextField
 					label=' Pages'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['pages']}
-					onChange={(e) => setUserData({ ...userData, pages: e.target.value })}
+					value={virtualArtData['pages']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, pages: e.target.value })}
 				/>
 			</div>
 			<div>
 				<Button
 					onClick={() => {
 						setStep(2);
-						console.log(userData, 'userData');
+						console.log(virtualArtData, 'userData');
 					}}
 					variant='contained'
 					color='primary'

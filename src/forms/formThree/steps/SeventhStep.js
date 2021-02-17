@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Button } from '@material-ui/core';
 import { multiStepContext } from '../FormThree.js';
 function SeventhStep({ setStep }) {
-	const { userData, setUserData } = useContext(multiStepContext);
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>

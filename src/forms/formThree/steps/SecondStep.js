@@ -5,12 +5,12 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
-import Model from '../../components/ContinuationSheet';
+import Model from '../continuosSheet/ContinuationSheet';
 
 import { multiStepContext } from '../FormThree.js';
 
 function SecondStep({ setStep }) {
-	const { userData, setUserData } = useContext(multiStepContext);
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 
 	const [continueSheet, setContinueSheet] = React.useState(false);
 	const [value, setValue] = React.useState('female');
@@ -29,8 +29,8 @@ function SecondStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['authorName']}
-					onChange={(e) => setUserData({ ...userData, authorName: e.target.value })}
+					value={virtualArtData['name_of_author']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, name_of_author: e.target.value })}
 				/>
 				<TextField
 					label='Year of Birth'
@@ -38,16 +38,16 @@ function SecondStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['birthYear']}
-					onChange={(e) => setUserData({ ...userData, birthYear: e.target.value })}
+					value={virtualArtData['year_of_birth']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, year_of_birth: e.target.value })}
 				/>
 				<TextField
 					label=' Year of Death'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['deathYear']}
-					onChange={(e) => setUserData({ ...userData, deathYear: e.target.value })}
+					value={virtualArtData['year_of_death']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, year_of_death: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -57,8 +57,10 @@ function SecondStep({ setStep }) {
 						aria-label='radio'
 						name='radio'
 						className='flex-row'
-						value={userData['hireWork']}
-						onChange={(e) => setUserData({ ...userData, hireWork: e.target.value })}
+						value={virtualArtData['work_for_hire']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, work_for_hire: e.target.value })
+						}
 					>
 						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
 						<FormControlLabel value='no' control={<Radio />} label='No' />
@@ -72,16 +74,16 @@ function SecondStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['authorCity']}
-					onChange={(e) => setUserData({ ...userData, authorCity: e.target.value })}
+					value={virtualArtData['citizen_of']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, citizen_of: e.target.value })}
 				/>
 				<TextField
 					label='Domiciled'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['domicile']}
-					onChange={(e) => setUserData({ ...userData, domicile: e.target.value })}
+					value={virtualArtData['domiciled_of']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, domiciled_of: e.target.value })}
 				/>
 			</div>
 			<div className='d-flex input_contained'>
@@ -91,8 +93,10 @@ function SecondStep({ setStep }) {
 						aria-label='radio'
 						name='radio'
 						className='flex-row'
-						value={userData['authorshipAnonymous']}
-						onChange={(e) => setUserData({ ...userData, authorshipAnonymous: e.target.value })}
+						value={virtualArtData['authorship_anonymous']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, authorship_anonymous: e.target.value })
+						}
 					>
 						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
 						<FormControlLabel value='no' control={<Radio />} label='No' />
@@ -104,8 +108,10 @@ function SecondStep({ setStep }) {
 						aria-label='radio'
 						name='radio'
 						className='flex-row'
-						value={userData['authorshipPseudonymous']}
-						onChange={(e) => setUserData({ ...userData, authorshipPseudonymous: e.target.value })}
+						value={virtualArtData['authorship_pseudonymous']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, authorship_pseudonymous: e.target.value })
+						}
 					>
 						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
 						<FormControlLabel value='no' control={<Radio />} label='No' />
@@ -119,8 +125,10 @@ function SecondStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['authorshipNature']}
-					onChange={(e) => setUserData({ ...userData, authorshipNature: e.target.value })}
+					value={virtualArtData['Nature_of_authorship']}
+					onChange={(e) =>
+						setVirtualArtData({ ...virtualArtData, Nature_of_authorship: e.target.value })
+					}
 				/>
 			</div>
 			<div className='d-flex flex-column  mt-2 m-0 p-0'>

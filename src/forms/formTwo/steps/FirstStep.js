@@ -40,11 +40,17 @@ function FirstStep({ setStep }) {
 					color='secondary'
 				/>
 				<TextField
+					id='date'
+					className='mr-3'
 					label='Issue Date'
+					type='date'
+					defaultValue='2017-05-24'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					className='mr-3'
+					InputLabelProps={{
+						shrink: true,
+					}}
 				/>
 				<TextField label=' Pages' margin='normal' variant='outlined' color='secondary' />
 			</div>

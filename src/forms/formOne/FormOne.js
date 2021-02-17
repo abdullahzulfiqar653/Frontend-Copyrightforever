@@ -11,7 +11,7 @@ import SeventhStep from './steps/SeventhStep';
 import EighthStep from './steps/EighthStep';
 import NinthStep from './steps/NinthStep';
 import Steeper from '../components/Steeper';
-import TextSection from '../components/TextSection';
+import TextSection from './steps/TextSection';
 
 function FormOne() {
 	const [currentStep, setStep] = useState(1);

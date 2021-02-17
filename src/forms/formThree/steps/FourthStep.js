@@ -4,7 +4,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import { multiStepContext } from '../FormThree.js';
 
 function FourthStep({ setStep }) {
-	const { userData, setUserData } = useContext(multiStepContext);
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3>Copyright Claimants</h3>
@@ -18,8 +18,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['copyrightOwnerName']}
-					onChange={(e) => setUserData({ ...userData, copyrightOwnerName: e.target.value })}
+					value={virtualArtData['copyrightOwnerName']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, copyrightOwnerName: e.target.value })}
 				/>
 				<TextField
 					label='Address'
@@ -27,8 +27,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['copyrightOwnerAddress']}
-					onChange={(e) => setUserData({ ...userData, copyrightOwnerAddress: e.target.value })}
+					value={virtualArtData['copyrightOwnerAddress']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, copyrightOwnerAddress: e.target.value })}
 				/>
 				<TextField
 					label=' Address'
@@ -36,8 +36,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['copyrightOwnerAddress']}
-					onChange={(e) => setUserData({ ...userData, copyrightOwnerAddress: e.target.value })}
+					value={virtualArtData['copyrightOwnerAddress']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, copyrightOwnerAddress: e.target.value })}
 				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
@@ -50,9 +50,9 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['copyrightOwnerRecipientIdentify']}
+					value={virtualArtData['copyrightOwnerRecipientIdentify']}
 					onChange={(e) =>
-						setUserData({ ...userData, copyrightOwnerRecipientIdentify: e.target.value })
+						setVirtualArtData({ ...virtualArtData, copyrightOwnerRecipientIdentify: e.target.value })
 					}
 				/>
 			</div>
@@ -67,9 +67,9 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['copyrightOwnerRecipientOwnership']}
+					value={virtualArtData['copyrightOwnerRecipientOwnership']}
 					onChange={(e) =>
-						setUserData({ ...userData, copyrightOwnerRecipientOwnership: e.target.value })
+						setVirtualArtData({ ...virtualArtData, copyrightOwnerRecipientOwnership: e.target.value })
 					}
 				/>
 			</div>

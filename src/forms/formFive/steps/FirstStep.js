@@ -29,11 +29,17 @@ function FirstStep({ setStep }) {
 					color='secondary'
 				/>
 				<TextField
-					label='Date on Copies'
+					id='date'
+					className='mr-3'
+					label='Date on copies'
+					type='date'
+					defaultValue='2017-05-24'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					className='mr-3'
+					InputLabelProps={{
+						shrink: true,
+					}}
 				/>
 				<TextField
 					label='Frequency of Publication'

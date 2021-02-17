@@ -7,7 +7,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import { multiStepContext } from '../FormThree.js';
 
 function FifthStep({ setStep }) {
-	const { userData, setUserData } = useContext(multiStepContext);
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 
 	return (
 		<div>
@@ -21,8 +21,10 @@ function FifthStep({ setStep }) {
 						aria-label='radio'
 						name='radio'
 						className='flex-row'
-						value={userData['previouslyRegistered']}
-						onChange={(e) => setUserData({ ...userData, previouslyRegistered: e.target.value })}
+						value={virtualArtData['previouslyRegistered']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, previouslyRegistered: e.target.value })
+						}
 					>
 						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
 						<FormControlLabel value='no' control={<Radio />} label='No' />
@@ -37,9 +39,9 @@ function FifthStep({ setStep }) {
 					<RadioGroup
 						aria-label='radio'
 						name='radio'
-						value={userData['reasonForAnotherRegistration']}
+						value={virtualArtData['reasonForAnotherRegistration']}
 						onChange={(e) =>
-							setUserData({ ...userData, reasonForAnotherRegistration: e.target.value })
+							setVirtualArtData({ ...virtualArtData, reasonForAnotherRegistration: e.target.value })
 						}
 					>
 						<FormControlLabel
@@ -67,16 +69,20 @@ function FifthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={userData['priorRegistrationNo']}
-					onChange={(e) => setUserData({ ...userData, priorRegistrationNo: e.target.value })}
+					value={virtualArtData['priorRegistrationNo']}
+					onChange={(e) =>
+						setVirtualArtData({ ...virtualArtData, priorRegistrationNo: e.target.value })
+					}
 				/>
 				<TextField
 					label='Year'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['priorRegistrationYear']}
-					onChange={(e) => setUserData({ ...userData, priorRegistrationYear: e.target.value })}
+					value={virtualArtData['priorRegistrationYear']}
+					onChange={(e) =>
+						setVirtualArtData({ ...virtualArtData, priorRegistrationYear: e.target.value })
+					}
 				/>
 			</div>
 			<Button onClick={() => setStep(4)} variant='contained' color='secondary'>

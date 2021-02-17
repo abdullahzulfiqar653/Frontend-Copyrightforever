@@ -3,7 +3,7 @@ import { Button, TextField } from '@material-ui/core';
 
 import { multiStepContext } from '../FormThree.js';
 function SixthStep({ setStep }) {
-	const { userData, setUserData } = useContext(multiStepContext);
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3>Derivative Work or Compilation Work</h3>
@@ -14,8 +14,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['identifyPreexistingWork']}
-					onChange={(e) => setUserData({ ...userData, identifyPreexistingWork: e.target.value })}
+					value={virtualArtData['identifyPreexistingWork']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, identifyPreexistingWork: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -24,8 +24,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={userData['preexistingWorkMaterial']}
-					onChange={(e) => setUserData({ ...userData, preexistingWorkMaterial: e.target.value })}
+					value={virtualArtData['preexistingWorkMaterial']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, preexistingWorkMaterial: e.target.value })}
 				/>
 			</div>
 
