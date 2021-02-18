@@ -18,8 +18,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['copyrightOwnerName']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, copyrightOwnerName: e.target.value })}
+					value={virtualArtData['claimant_name']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, claimant_name: e.target.value })}
 				/>
 				<TextField
 					label='Address'
@@ -27,8 +27,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['copyrightOwnerAddress']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, copyrightOwnerAddress: e.target.value })}
+					value={virtualArtData['claimant_address']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, claimant_address: e.target.value })}
 				/>
 				<TextField
 					label=' Address'
@@ -36,8 +36,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['copyrightOwnerAddress']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, copyrightOwnerAddress: e.target.value })}
+					value={virtualArtData['claimant_address1']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, claimant_address1: e.target.value })}
 				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
@@ -50,9 +50,9 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['copyrightOwnerRecipientIdentify']}
+					value={virtualArtData['reciepient_name']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, copyrightOwnerRecipientIdentify: e.target.value })
+						setVirtualArtData({ ...virtualArtData, reciepient_name: e.target.value })
 					}
 				/>
 			</div>
@@ -67,9 +67,9 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['copyrightOwnerRecipientOwnership']}
+					value={virtualArtData['how_obtained_ownership']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, copyrightOwnerRecipientOwnership: e.target.value })
+						setVirtualArtData({ ...virtualArtData, how_obtained_ownership: e.target.value })
 					}
 				/>
 			</div>

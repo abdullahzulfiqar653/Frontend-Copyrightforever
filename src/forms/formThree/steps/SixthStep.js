@@ -14,8 +14,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={virtualArtData['identifyPreexistingWork']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, identifyPreexistingWork: e.target.value })}
+					value={virtualArtData['identify_preexisting_work']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, identify_preexisting_work: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -24,8 +24,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={virtualArtData['preexistingWorkMaterial']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, preexistingWorkMaterial: e.target.value })}
+					value={virtualArtData['describe_preexisting_work']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, describe_preexisting_work: e.target.value })}
 				/>
 			</div>
 

@@ -28,8 +28,18 @@ function FirstStep({ setStep }) {
 			/>
 
 			<FormLabel className='mt-4' style={{ lineHeight: '1.6' }} component='legend'>
-				If your work was previously published in any periodical? If so, please provide:
+				If your work was previously published in any periodical, serial, or collection,  give
+				information about the collective work in which the contribution appeared?
+				If so, please provide:
 			</FormLabel>
+			<TextField
+				label='what is the title of your collective work:'
+				margin='normal'
+				variant='outlined'
+				color='secondary'
+				value={virtualArtData['title_of_collective_work']}
+				onChange={(e) => setVirtualArtData({ ...virtualArtData, title_of_collective_work: e.target.value })}
+			/>
 			<div className='d-flex input_contained'>
 				<TextField
 					className='mr-3'

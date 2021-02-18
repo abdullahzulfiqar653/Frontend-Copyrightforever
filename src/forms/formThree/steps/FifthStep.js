@@ -21,13 +21,13 @@ function FifthStep({ setStep }) {
 						aria-label='radio'
 						name='radio'
 						className='flex-row'
-						value={virtualArtData['previouslyRegistered']}
+						value={virtualArtData['previously_registered']}
 						onChange={(e) =>
-							setVirtualArtData({ ...virtualArtData, previouslyRegistered: e.target.value })
+							setVirtualArtData({ ...virtualArtData, previously_registered: e.target.value })
 						}
 					>
-						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-						<FormControlLabel value='no' control={<Radio />} label='No' />
+						<FormControlLabel value='true' control={<Radio />} label='Yes' />
+						<FormControlLabel value='false' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>
@@ -45,17 +45,17 @@ function FifthStep({ setStep }) {
 						}
 					>
 						<FormControlLabel
-							value='This is the first published edition of the work.'
+							value='first_published_edition_of_work'
 							control={<Radio />}
 							label='This is the first published edition of the work.'
 						/>
 						<FormControlLabel
-							value='This is the first application by the author as a copyright claimant.'
+							value='first_application_by_the_author'
 							control={<Radio />}
 							label='This is the first application by the author as a copyright claimant.'
 						/>
 						<FormControlLabel
-							value='This is a changed version of the work, as shown by Section 6.'
+							value='changed_version_of_the_work'
 							control={<Radio />}
 							label='This is a changed version of the work, as shown by Section 6.'
 						/>

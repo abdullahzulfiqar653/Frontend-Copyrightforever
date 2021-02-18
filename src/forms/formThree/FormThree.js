@@ -203,9 +203,9 @@ function FormThree() {
 									margin='normal'
 									variant='outlined'
 									color='secondary'
-									value={virtualArtData['zipCode']}
+									value={virtualArtData['zipcode']}
 									onChange={(e) =>
-										setVirtualArtData({ ...virtualArtData, zipCode: e.target.value })
+										setVirtualArtData({ ...virtualArtData, zipcode: e.target.value })
 									}
 								/>
 							</div>

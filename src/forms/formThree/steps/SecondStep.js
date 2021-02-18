@@ -62,8 +62,8 @@ function SecondStep({ setStep }) {
 							setVirtualArtData({ ...virtualArtData, work_for_hire: e.target.value })
 						}
 					>
-						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-						<FormControlLabel value='no' control={<Radio />} label='No' />
+						<FormControlLabel value='true' control={<Radio />} label='Yes' />
+						<FormControlLabel value='false' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>
@@ -98,8 +98,8 @@ function SecondStep({ setStep }) {
 							setVirtualArtData({ ...virtualArtData, authorship_anonymous: e.target.value })
 						}
 					>
-						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-						<FormControlLabel value='no' control={<Radio />} label='No' />
+						<FormControlLabel value='true' control={<Radio />} label='Yes' />
+						<FormControlLabel value='false' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 				<div component='fieldset' className='mt-4 fieldset'>
@@ -113,8 +113,8 @@ function SecondStep({ setStep }) {
 							setVirtualArtData({ ...virtualArtData, authorship_pseudonymous: e.target.value })
 						}
 					>
-						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-						<FormControlLabel value='no' control={<Radio />} label='No' />
+						<FormControlLabel value='true' control={<Radio />} label='Yes' />
+						<FormControlLabel value='false' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>
@@ -125,9 +125,9 @@ function SecondStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={virtualArtData['Nature_of_authorship']}
+					value={virtualArtData['nature_of_authorship']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, Nature_of_authorship: e.target.value })
+						setVirtualArtData({ ...virtualArtData, nature_of_authorship: e.target.value })
 					}
 				/>
 			</div>
