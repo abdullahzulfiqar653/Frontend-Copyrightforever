@@ -60,7 +60,7 @@ function FormThree() {
 		prior_reg_year: '',
 		identify_preexisting_work: '',
 		describe_preexisting_work: '',
-		file: '',
+		file: '',	
 		employer_name: '',
 		employer_date_of_birth: '',
 		date_of_hiring: '',

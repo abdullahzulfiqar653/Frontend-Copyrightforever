@@ -96,7 +96,7 @@ function ContinuationSheet(props) {
 					/>
 				</div>
 				{/*
-         ====================Form_2-End====================== 
+         ====================Form_1-End====================== 
          */}
 
 				{/*
@@ -166,7 +166,72 @@ function ContinuationSheet(props) {
 				</div>
 				{/*
          ====================Form_2-END====================== 
+         ====================Form_3====================== 
          */}
+				<div className='d-flex input_contained'>
+					<TextField
+						label='Name of author:'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						className='mr-3'
+					/>
+					<TextField
+						label='Year of Birth'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						className='mr-3'
+					/>
+					<TextField label=' Year of Death' margin='normal' variant='outlined' color='secondary' />
+				</div>
+				<div>
+					<div component='fieldset' className='mt-4 fieldset'>
+						<FormLabel component='legend'>Was this a “work for hire”?</FormLabel>
+						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
+							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
+							<FormControlLabel value='no' control={<Radio />} label='No' />
+						</RadioGroup>
+					</div>
+				</div>
+				<div className='d-flex input_contained'>
+					<TextField
+						label='Author is a Citizen of'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						className='mr-3'
+					/>
+					<TextField label='Domiciled' margin='normal' variant='outlined' color='secondary' />
+				</div>
+				<div>
+					<div component='fieldset' className='mt-4 fieldset'>
+						<FormLabel component='legend'>Was the authorship anonymous ?</FormLabel>
+						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
+							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
+							<FormControlLabel value='no' control={<Radio />} label='No' />
+						</RadioGroup>
+					</div>
+					<div component='fieldset' className='mt-4 fieldset'>
+						<FormLabel component='legend'>Was the authorship pseudonymous ?</FormLabel>
+						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
+							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
+							<FormControlLabel value='no' control={<Radio />} label='No' />
+						</RadioGroup>
+					</div>
+				</div>
+				<div>
+					<TextField
+						label='Nature of authorship - Please describe the nature of material created by this author in
+                            which copyright is claimed'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+					/>
+				</div>
+
+				{/* FORM_3_END */}
+
 				<div>
 					<div className='d-flex input_contained'>
 						<TextField
