@@ -23,7 +23,87 @@ function FormThree() {
 	const [modalShow, setModalShow] = React.useState(false);
 
 	//state & function for input data
-	const [virtualArtData, setVirtualArtData] = useState([]);
+	const [virtualArtData, setVirtualArtData] = useState({
+		name: '',
+		email_address: '',
+		mailing_address: '',
+		city: '',
+		state: '',
+		zipcode: '',
+		title_of_work: '',
+		prior_title: '',
+		title_of_collective_work: '',
+		volume: '',
+		number: '',
+		issue: '',
+		pages: '',
+		name_of_author: '',
+		year_of_birth: '',
+		year_of_death: '',
+		work_for_hire: '',
+		citizen_of: '',
+		domiciled_of: '',
+		authorship_anonymous: '',
+		authorship_pseudonymous: '',
+		nature_of_authorship: '',
+		year_of_authorship: '',
+		date_of_authorship: '',
+		nation: '',
+		claimant_name: '',
+		reciepient_name: '',
+		how_obtained_ownership: '',
+		previously_registered: '',
+		first_published_edition_of_work: '',
+		first_published_by_the_author: '',
+		changed_version_of_the_work: '',
+		prior_reg_number: '',
+		prior_reg_year: '',
+		identify_preexisting_work: '',
+		describe_preexisting_work: '',
+		file: '',
+		employer_name: '',
+		employer_date_of_birth: '',
+		date_of_hiring: '',
+		employer_address: '',
+		date_of_employing_copyright: '',
+		sign_image: '',
+		certification_name: '',
+		continuation_title: '',
+		name_and_address: '',
+		name_of_author_1: '',
+		year_of_birth_1: '',
+		year_of_death_1: '',
+		work_for_hire_1: '',
+		citizen_of_1: '',
+		domiciled_of_1: '',
+		authorship_anonymous_1: '',
+		authorship_pseudonymous_1: '',
+		nature_of_authorship_1: '',
+		name_of_author_2: '',
+		year_of_birth_2: '',
+		year_of_death_2: '',
+		work_for_hire_2: '',
+		citizen_of_2: '',
+		domiciled_of_2: '',
+		authorship_anonymous_2: '',
+		authorship_pseudonymous_2: '',
+		nature_of_authorship_2: '',
+		name_of_author_3: '',
+		year_of_birth_3: '',
+		year_of_death_3: '',
+		work_for_hire_3: '',
+		citizen_of_3: '',
+		domiciled_of_3: '',
+		authorship_anonymous_3: '',
+		authorship_pseudonymous_3: '',
+		nature_of_authorship_3: '',
+		continuation_name: '',
+		continuation_date: '',
+		continuation_address: '',
+		continuation_city: '',
+		continuation_state: '',
+		continuation_zipcode: '',
+	});
 	const submitData = () => {
 		console.log(virtualArtData);
 	};
@@ -135,19 +215,17 @@ function FormThree() {
 									onChange={(e) => setVirtualArtData({ ...virtualArtData, city: e.target.value })}
 								/>
 								<FormControl className='mr-3' variant='outlined' margin='normal'>
-									<InputLabel id='demo-simple-select-outlined-label'>State</InputLabel>
+									<InputLabel htmlFor='state'>State</InputLabel>
 									<Select
-										labelId='demo-simple-select-outlined-label'
-										id='demo-simple-select-outlined'
+										// labelId='demo-simple-select-outlined-label'
+										// id='demo-simple-select-outlined'
 										label='Age'
 										value={virtualArtData['state']}
 										onChange={(e) =>
 											setVirtualArtData({ ...virtualArtData, state: e.target.value })
 										}
 									>
-										<MenuItem value=''>
-											<em>None</em>
-										</MenuItem>
+										<MenuItem value=''>State</MenuItem>
 										<MenuItem value='Alabama'>Alabama</MenuItem>
 										<MenuItem value='Alaska'>Alaska</MenuItem>
 										<MenuItem value='Arizona'>Arizona</MenuItem>
@@ -203,9 +281,9 @@ function FormThree() {
 									margin='normal'
 									variant='outlined'
 									color='secondary'
-									value={virtualArtData['zipCode']}
+									value={virtualArtData['zipcode']}
 									onChange={(e) =>
-										setVirtualArtData({ ...virtualArtData, zipCode: e.target.value })
+										setVirtualArtData({ ...virtualArtData, zipcode: e.target.value })
 									}
 								/>
 							</div>

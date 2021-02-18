@@ -13,10 +13,17 @@ import NinthStep from './steps/NinthStep';
 import Steeper from '../components/Steeper';
 import TextSection from './steps/TextSection';
 
+export const multiStepContext = React.createContext();
+
 function FormTwo() {
 	const [currentStep, setStep] = useState(1);
 	const [start, setStart] = useState(false);
 	const [modalShow, setModalShow] = React.useState(false);
+
+	const [userData, setUserData] = useState([]);
+	const submitData = () => {
+		console.log(userData);
+	};
 
 	const showStep = (step) => {
 		// eslint-disable-next-line default-case
@@ -42,74 +49,76 @@ function FormTwo() {
 		}
 	};
 	return (
-		<Container className='form_cont' id='literary_work'>
-			<Row className='img_cont'>
-				<Col className='p-0' sm={12} md={6} xl={4}>
-					<img className='img-fluid' src='/images/tx/TX1.jpg' alt='pic1' />
-				</Col>
-				<Col className='p-0' sm={12} md={6} xl={4}>
-					<img className='img-fluid' src='/images/tx/TX2.jpg' alt='pic2' />
-				</Col>
-				<Col className='p-0' sm={12} md={6} xl={4}>
-					<img className='img-fluid' src='/images/tx/TX3.jpg' alt='pic3' />
-				</Col>
-			</Row>
-			{start ? (
-				<div className='form_field_cont'>
-					<Steeper currentStep={currentStep} />
-					{showStep(currentStep)}
-				</div>
-			) : (
-				<TextSection
-					text={{
-						uppar: 'CopyrightForever.com Form TX for Literary Works',
-						heading1: 'Are you the author of a literary work ',
-						ulHeading: 'Literary Arts field includes:',
-						listItem1: `Literary Arts field includes such matters as writings of fiction, nonfiction, poetry,
+		<multiStepContext.Provider value={{ userData, setUserData, submitData }}>
+			<Container className='form_cont' id='literary_work'>
+				<Row className='img_cont'>
+					<Col className='p-0' sm={12} md={6} xl={4}>
+						<img className='img-fluid' src='/images/tx/TX1.jpg' alt='pic1' />
+					</Col>
+					<Col className='p-0' sm={12} md={6} xl={4}>
+						<img className='img-fluid' src='/images/tx/TX2.jpg' alt='pic2' />
+					</Col>
+					<Col className='p-0' sm={12} md={6} xl={4}>
+						<img className='img-fluid' src='/images/tx/TX3.jpg' alt='pic3' />
+					</Col>
+				</Row>
+				{start ? (
+					<div className='form_field_cont'>
+						<Steeper currentStep={currentStep} />
+						{showStep(currentStep)}
+					</div>
+				) : (
+					<TextSection
+						text={{
+							uppar: 'CopyrightForever.com Form TX for Literary Works',
+							heading1: 'Are you the author of a literary work ',
+							ulHeading: 'Literary Arts field includes:',
+							listItem1: `Literary Arts field includes such matters as writings of fiction, nonfiction, poetry,
                                 textbooks, reference works, directories, catalogs, advertising copy, compilations of information,
                                 and computer programs`,
-						listItem2: `Register and protect your literary works in under 5 MINUTES. Use our SWIFT
+							listItem2: `Register and protect your literary works in under 5 MINUTES. Use our SWIFT
                         REGISTRATION portal.`,
-						setStart,
-						setModalShow,
-					}}
-					textField={
-						<div className='d-flex input_contained'>
-							<TextField
-								label='Mailing Address:'
-								margin='normal'
-								variant='outlined'
-								color='secondary'
-								className='mr-3'
-							/>
-							<TextField
-								label='City:'
-								margin='normal'
-								variant='outlined'
-								color='secondary'
-								className='mr-3'
-							/>
-							<FormControl className='mr-3' variant='outlined' margin='normal'>
-								<InputLabel id='demo-simple-select-outlined-label'>Age</InputLabel>
-								<Select
-									labelId='demo-simple-select-outlined-label'
-									id='demo-simple-select-outlined'
-									label='Age'
-								>
-									<MenuItem value=''>
-										<em>None</em>
-									</MenuItem>
-									<MenuItem value={10}>Ten</MenuItem>
-									<MenuItem value={20}>Twenty</MenuItem>
-									<MenuItem value={30}>Thirty</MenuItem>
-								</Select>
-							</FormControl>
-							<TextField label='Zip Code:' margin='normal' variant='outlined' color='secondary' />
-						</div>
-					}
-				/>
-			)}
-		</Container>
+							setStart,
+							setModalShow,
+						}}
+						textField={
+							<div className='d-flex input_contained'>
+								<TextField
+									label='Mailing Address:'
+									margin='normal'
+									variant='outlined'
+									color='secondary'
+									className='mr-3'
+								/>
+								<TextField
+									label='City:'
+									margin='normal'
+									variant='outlined'
+									color='secondary'
+									className='mr-3'
+								/>
+								<FormControl className='mr-3' variant='outlined' margin='normal'>
+									<InputLabel id='demo-simple-select-outlined-label'>Age</InputLabel>
+									<Select
+										labelId='demo-simple-select-outlined-label'
+										id='demo-simple-select-outlined'
+										label='Age'
+									>
+										<MenuItem value=''>
+											<em>None</em>
+										</MenuItem>
+										<MenuItem value={10}>Ten</MenuItem>
+										<MenuItem value={20}>Twenty</MenuItem>
+										<MenuItem value={30}>Thirty</MenuItem>
+									</Select>
+								</FormControl>
+								<TextField label='Zip Code:' margin='normal' variant='outlined' color='secondary' />
+							</div>
+						}
+					/>
+				)}
+			</Container>
+		</multiStepContext.Provider>
 	);
 }
 

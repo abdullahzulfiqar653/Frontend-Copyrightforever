@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormThree.js';
 
 function TextSection({ text, textField, setModalShow }) {
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<>
 			<Row>
@@ -31,18 +33,25 @@ function TextSection({ text, textField, setModalShow }) {
 								variant='outlined'
 								color='secondary'
 								className='mr-3'
+								value={virtualArtData['name']}
+								onChange={(e) => setVirtualArtData({ ...virtualArtData, name: e.target.value })}
 							/>
 							<TextField
 								label='Your Email Address:'
 								margin='normal'
 								variant='outlined'
 								color='secondary'
+								value={virtualArtData['email_address']}
+								onChange={(e) =>
+									setVirtualArtData({ ...virtualArtData, email_address: e.target.value })
+								}
 							/>
 						</div>
 						{textField}
 					</div>
 					<Button
 						onClick={() => {
+							console.log(virtualArtData);
 							text.setStart(true);
 							text.setModalShow(true);
 						}}

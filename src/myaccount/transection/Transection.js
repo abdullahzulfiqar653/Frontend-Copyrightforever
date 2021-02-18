@@ -63,8 +63,11 @@ export default function CustomizedTables() {
 						<StyledTableCell align='center'>29</StyledTableCell>
 						<StyledTableCell align='center'>100</StyledTableCell>
 						<StyledTableCell align='center'>
-							<Button className='paid unPaid' variant='contained' color='secondary'>
+							<Button className='unPaid' variant='contained' color='secondary'>
 								Unpaid
+							</Button>
+							<Button className='paid' variant='contained' color='secondary'>
+								Paid
 							</Button>
 						</StyledTableCell>
 					</StyledTableRow>
