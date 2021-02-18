@@ -39,12 +39,12 @@ function EighthStep({ setStep, setModal, modal }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['yourName']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, yourName: e.target.value })}
+					value={virtualArtData['employer_name']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, employer_name: e.target.value })}
 				/>
 				<TextField
 					id='date'
-					label='Date'
+					label='Date of birth'
 					type='date'
 					defaultValue='2017-05-24'
 					margin='normal'
@@ -53,6 +53,8 @@ function EighthStep({ setStep, setModal, modal }) {
 					InputLabelProps={{
 						shrink: true,
 					}}
+					value={virtualArtData['employer_date_of_birth']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, employer_date_of_birth: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -61,8 +63,8 @@ function EighthStep({ setStep, setModal, modal }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={virtualArtData['address']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, address: e.target.value })}
+					value={virtualArtData['employer_address']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, employer_address: e.target.value })}
 				/>
 			</div>
 

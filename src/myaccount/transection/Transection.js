@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
@@ -35,6 +36,8 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
 	const classes = useStyles();
+	const user = useSelector(state => state.auth.user)
+	// console.log(currentUser, "aaaaaaaa")
 
 	return (
 		<TableContainer component={Paper} style={{ boxShadow: 'none' }}>
@@ -53,13 +56,14 @@ export default function CustomizedTables() {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{/* {rows.map((row) => ( */}
+					{user && user.userforms.map((row) => (
 					<StyledTableRow>
 						<StyledTableCell component='th' scope='row'>
-							29-10-2020
+							{row.submitted_at}
 						</StyledTableCell>
-						<StyledTableCell align='center'>Visual Art Work</StyledTableCell>
+						<StyledTableCell align='center'>{row.form_name}</StyledTableCell>
 						<StyledTableCell align='center'>34</StyledTableCell>
+<<<<<<< HEAD
 						<StyledTableCell align='center'>29</StyledTableCell>
 						<StyledTableCell align='center'>100</StyledTableCell>
 						<StyledTableCell align='center'>
@@ -69,9 +73,23 @@ export default function CustomizedTables() {
 							<Button className='paid' variant='contained' color='secondary'>
 								Paid
 							</Button>
+=======
+						<StyledTableCell align='center'>99</StyledTableCell>
+						<StyledTableCell align='center'>133</StyledTableCell>
+							<StyledTableCell align='center'>
+								{row.paid ? (
+									<Button className='paid' variant='contained' color='secondary'>
+										Paid
+									</Button>
+								) : (
+									<Button className='paid unPaid' variant='contained' color='secondary'>
+										Unpaid
+									</Button>		
+								)}
+>>>>>>> 930f285a45386db2c1fa6518e91081f4823a14b3
 						</StyledTableCell>
 					</StyledTableRow>
-					{/* ))} */}
+					 ))}
 				</TableBody>
 			</Table>
 		</TableContainer>

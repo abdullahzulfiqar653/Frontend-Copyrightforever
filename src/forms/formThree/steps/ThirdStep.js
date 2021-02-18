@@ -31,9 +31,9 @@ function ThirdStep({ setStep }) {
 						labelId='demo-simple-select-outlined-label'
 						id='demo-simple-select-outlined'
 						label='Age'
-						value={virtualArtData['date_of_authorship']}
+						value={virtualArtData['month']}
 						onChange={(e) =>
-							setVirtualArtData({ ...virtualArtData, date_of_authorship: e.target.value })
+							setVirtualArtData({ ...virtualArtData, month: e.target.value })
 						}
 					>
 						<MenuItem value=''>
@@ -60,14 +60,9 @@ function ThirdStep({ setStep }) {
 						labelId='demo-simple-select-outlined-label'
 						id='demo-simple-select-outlined'
 						label='Age'
-						value={virtualArtData['date_of_authorship']}
+						value={virtualArtData['day']}
 						onChange={(e) =>
-							setVirtualArtData({
-								...virtualArtData,
-								date_of_authorship: e.target.value,
-							})
-						}
-					>
+							setVirtualArtData({ ...virtualArtData, day: e.target.value })}>
 						<MenuItem value=''>
 							<em>None</em>
 						</MenuItem>
@@ -110,9 +105,9 @@ function ThirdStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['date_of_authorship']}
+					value={virtualArtData['year']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, date_of_authorship: e.target.value })
+						setVirtualArtData({ ...virtualArtData, year: e.target.value })
 					}
 				/>
 				<TextField
@@ -120,9 +115,9 @@ function ThirdStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={virtualArtData['initialPublishedNation']}
+					value={virtualArtData['nation']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, initialPublishedNation: e.target.value })
+						setVirtualArtData({ ...virtualArtData, nation: e.target.value })
 					}
 				/>
 			</div>

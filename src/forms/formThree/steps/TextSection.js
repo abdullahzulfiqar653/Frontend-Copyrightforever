@@ -1,7 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Button, TextField } from '@material-ui/core';
+<<<<<<< HEAD
 import { multiStepContext } from '../FormThree.js';
+=======
+import {multiStepContext} from '../FormThree';
+
+>>>>>>> 930f285a45386db2c1fa6518e91081f4823a14b3
 
 function TextSection({ text, textField, setModalShow }) {
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
@@ -34,7 +39,11 @@ function TextSection({ text, textField, setModalShow }) {
 								color='secondary'
 								className='mr-3'
 								value={virtualArtData['name']}
+<<<<<<< HEAD
 								onChange={(e) => setVirtualArtData({ ...virtualArtData, name: e.target.value })}
+=======
+								onChange={(e)=>setVirtualArtData({ ...virtualArtData, name:e.target.value })}
+>>>>>>> 930f285a45386db2c1fa6518e91081f4823a14b3
 							/>
 							<TextField
 								label='Your Email Address:'
@@ -42,9 +51,13 @@ function TextSection({ text, textField, setModalShow }) {
 								variant='outlined'
 								color='secondary'
 								value={virtualArtData['email_address']}
+<<<<<<< HEAD
 								onChange={(e) =>
 									setVirtualArtData({ ...virtualArtData, email_address: e.target.value })
 								}
+=======
+								onChange={(e)=>setVirtualArtData({ ...virtualArtData, email_address:e.target.value })}
+>>>>>>> 930f285a45386db2c1fa6518e91081f4823a14b3
 							/>
 						</div>
 						{textField}
