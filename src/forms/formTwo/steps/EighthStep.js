@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Model from '../../../components/Model';
 import { Button, TextField, FormControl, Select, InputLabel, MenuItem } from '@material-ui/core';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { multiStepContext } from '../FormTwo.js';
 
 function EighthStep({ setStep, setModal, modal }) {
+	const hiddenInput = React.useRef(null);
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>
@@ -122,6 +126,24 @@ function EighthStep({ setStep, setModal, modal }) {
 				</FormControl>
 				<TextField label='Zip Code' margin='normal' variant='outlined' color='secondary' />
 			</div>
+			<h5 className='my-3 d-flex align-items-center'>
+				<strong className='strong'>Signature:</strong>{' '}
+				<input
+					type='file'
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, file: e.target.files })}
+					ref={hiddenInput}
+					className='d-none'
+				/>
+				<Button
+					className='m-0 ml-3 '
+					variant='contained'
+					color='default'
+					startIcon={<CloudUploadIcon />}
+					onClick={() => hiddenInput.current.click()}
+				>
+					Upload
+				</Button>
+			</h5>
 			{/* <Model show={modal} onHide={() => setModal(false)} /> */}
 			<Button onClick={() => setStep(7)} variant='contained' color='secondary'>
 				Previous

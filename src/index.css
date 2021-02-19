@@ -431,7 +431,7 @@ ul.chart > li:hover:before {
 .form_field_cont button {
 	width: 20%;
 	padding: 10px !important;
-	margin: 20px 20px 0 0px !important;
+	margin: 20px 20px 0 0px;
 	background-color: #ff0000 !important;
 }
 .center-stepper .MuiStepper-root {

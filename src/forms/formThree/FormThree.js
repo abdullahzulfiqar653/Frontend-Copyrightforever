@@ -62,13 +62,13 @@ function FormThree() {
 		prior_reg_year: '',
 		identify_preexisting_work: '',
 		describe_preexisting_work: '',
-		file: '',	
+		file: null,
 		employer_name: '',
 		employer_date_of_birth: '',
 		date_of_hiring: '',
 		employer_address: '',
 		date_of_employing_copyright: '',
-		sign_image: '',
+		sign_image: null,
 		certification_name: '',
 		continuation_title: '',
 		name_and_address: '',
@@ -107,7 +107,7 @@ function FormThree() {
 		continuation_zipcode: '',
 	});
 	const submitData = () => {
-		console.log(virtualArtData);
+		console.log(virtualArtData, virtualArtData.file);
 	};
 
 	useEffect(() => {

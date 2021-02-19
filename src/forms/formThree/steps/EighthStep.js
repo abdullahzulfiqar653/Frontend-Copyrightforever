@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import Model from '../../../components/Model';
 import { Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { multiStepContext } from '../FormThree.js';
 
 function EighthStep({ setStep, setModal, modal }) {
+	const hiddenInput = React.useRef(null);
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<div>
@@ -54,7 +56,9 @@ function EighthStep({ setStep, setModal, modal }) {
 						shrink: true,
 					}}
 					value={virtualArtData['employer_date_of_birth']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, employer_date_of_birth: e.target.value })}
+					onChange={(e) =>
+						setVirtualArtData({ ...virtualArtData, employer_date_of_birth: e.target.value })
+					}
 				/>
 			</div>
 			<div>
@@ -64,10 +68,11 @@ function EighthStep({ setStep, setModal, modal }) {
 					variant='outlined'
 					color='secondary'
 					value={virtualArtData['employer_address']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, employer_address: e.target.value })}
+					onChange={(e) =>
+						setVirtualArtData({ ...virtualArtData, employer_address: e.target.value })
+					}
 				/>
 			</div>
-
 			<div className='d-flex input_contained'>
 				<TextField
 					label='City'
@@ -148,8 +153,31 @@ function EighthStep({ setStep, setModal, modal }) {
 				/>
 			</div>
 
+			<h5 className='my-3 d-flex align-items-center'>
+				<strong className='strong'>Signature:</strong>{' '}
+				<input
+					type='file'
+					onChange={(e) => {
+						const fileReader = new FileReader();
+						fileReader.readAsDataURL(e.target.files[0]);
+						fileReader.onload = (e) => {
+							setVirtualArtData({ ...virtualArtData, sign_image: e.target.result });
+						};
+					}}
+					ref={hiddenInput}
+					className='d-none'
+				/>
+				<Button
+					className='m-0 ml-3 '
+					variant='contained'
+					color='default'
+					startIcon={<CloudUploadIcon />}
+					onClick={() => hiddenInput.current.click()}
+				>
+					Upload
+				</Button>
+			</h5>
 			{/* <Model show={modal} onHide={() => setModal(false)} /> */}
-
 			<Button onClick={() => setStep(7)} variant='contained' color='secondary'>
 				Previous
 			</Button>

@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Button } from '@material-ui/core';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { multiStepContext } from '../FormThree.js';
 function SeventhStep({ setStep }) {
+	const hiddenInput = React.useRef(null);
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<div>
@@ -34,8 +36,29 @@ function SeventhStep({ setStep }) {
 				</li>
 			</ul>
 
-			<h5>
-				<strong className='strong'>Upload file here:</strong> <input type='file' />
+			<h5 className='d-flex align-items-center'>
+				<strong className='strong'>Upload file here:</strong>{' '}
+				<input
+					type='file'
+					onChange={(e) => {
+						const fileReader = new FileReader();
+						fileReader.readAsDataURL(e.target.files[0]);
+						fileReader.onload = (e) => {
+							setVirtualArtData({ ...virtualArtData, file: e.target.result });
+						};
+					}}
+					ref={hiddenInput}
+					className='d-none'
+				/>
+				<Button
+					className='m-0 ml-3 '
+					variant='contained'
+					color='default'
+					startIcon={<CloudUploadIcon />}
+					onClick={() => hiddenInput.current.click()}
+				>
+					Upload
+				</Button>
 			</h5>
 			<Button onClick={() => setStep(6)} variant='contained' color='secondary'>
 				Previous

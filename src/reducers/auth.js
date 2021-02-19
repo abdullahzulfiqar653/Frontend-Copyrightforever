@@ -10,6 +10,7 @@ const initialState = {
     loading: false,
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialState, action) {
     const { type, payload } = action;
     switch (type) {
@@ -38,7 +39,7 @@ export default function (state = initialState, action) {
                 isAuthenticated: true,
                 loading: false,
                 access: payload.access,
-                refresh: payload.refresh
+                 refresh: payload.refresh
             }
         case types.USER_LOADED_SUCCESS:
             return {
