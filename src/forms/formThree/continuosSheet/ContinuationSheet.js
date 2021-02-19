@@ -1,27 +1,31 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Modal } from 'react-bootstrap';
 import { TextField, Button, InputLabel, FormControl, Select, MenuItem } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
+import { multiStepContext } from '../FormThree.js';
 
 function ContinuationSheet(props) {
+	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	return (
 		<Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
 			<Modal.Header closeButton>
 				<Modal.Title id='contained-modal-title-vcenter'>CONTINUATION SHEET</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				{/*
-         ====================Form_1====================== 
-         */}
+				
 				<div>
 					<TextField
 						label=' Identification of Your Application. Give the title as given in your basic form:'
 						margin='normal'
 						variant='outlined'
 						color='secondary'
+						value={virtualArtData['continuation_title']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, continuation_title: e.target.value })
+						}
 					/>
 				</div>
 
@@ -31,8 +35,15 @@ function ContinuationSheet(props) {
 						margin='normal'
 						variant='outlined'
 						color='secondary'
+						value={virtualArtData['name_and_address']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, name_and_address: e.target.value })
+						}
 					/>
 				</div>
+				{/*
+         ====================Form_1====================== 
+         */}
 				<h3>About the Author</h3>
 				<div className='d-flex input_contained'>
 					<TextField
@@ -41,6 +52,10 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['name_of_author_1']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, name_of_author_1: e.target.value })
+						}
 					/>
 					<TextField
 						label='Year of Birth'
@@ -48,15 +63,38 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['year_of_birth_1']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, year_of_birth_1: e.target.value })
+						}
 					/>
-					<TextField label=' Year of Death' margin='normal' variant='outlined' color='secondary' />
+					<TextField
+						label=' Year of Death'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						className='mr-3'
+						value={virtualArtData['year_of_death_1']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, year_of_death_1: e.target.value })
+						}
+					/>
+						
 				</div>
 				<div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was this a “work for hire”?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['work_for_hire_1']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, work_for_hire_1: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -67,22 +105,51 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['citizen_of_1']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, citizen_of_1: e.target.value })
+						}
 					/>
-					<TextField label='Domiciled' margin='normal' variant='outlined' color='secondary' />
+					<TextField
+						label='Domiciled'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						value={virtualArtData['domiciled_of_1']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, domiciled_of_1: e.target.value })
+						}
+					/>
 				</div>
 				<div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was the authorship anonymous ?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['authorship_anonymous_1']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, authorship_anonymous_1: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was the authorship pseudonymous ?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['authorship_pseudonymous_1']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, authorship_pseudonymous_1: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -93,6 +160,10 @@ function ContinuationSheet(props) {
 						margin='normal'
 						variant='outlined'
 						color='secondary'
+						value={virtualArtData['nature_of_authorship_1']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, nature_of_authorship_1: e.target.value })
+						}
 					/>
 				</div>
 				{/*
@@ -110,6 +181,10 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['name_of_author_2']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, name_of_author_2: e.target.value })
+						}
 					/>
 					<TextField
 						label='Year of Birth'
@@ -117,15 +192,38 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['year_of_birth_2']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, year_of_birth_2: e.target.value })
+						}
 					/>
-					<TextField label=' Year of Death' margin='normal' variant='outlined' color='secondary' />
+					<TextField
+						label=' Year of Death'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						className='mr-3'
+						value={virtualArtData['year_of_death_2']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, year_of_death_2: e.target.value })
+						}
+					/>
+						
 				</div>
 				<div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was this a “work for hire”?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['work_for_hire_2']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, work_for_hire_2: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -136,22 +234,51 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['citizen_of_2']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, citizen_of_2: e.target.value })
+						}
 					/>
-					<TextField label='Domiciled' margin='normal' variant='outlined' color='secondary' />
+					<TextField
+						label='Domiciled'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						value={virtualArtData['domiciled_of_2']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, domiciled_of_2: e.target.value })
+						}
+					/>
 				</div>
 				<div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was the authorship anonymous ?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['authorship_anonymous_2']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, authorship_anonymous_2: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was the authorship pseudonymous ?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['authorship_pseudonymous_2']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, authorship_pseudonymous_2: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -162,10 +289,16 @@ function ContinuationSheet(props) {
 						margin='normal'
 						variant='outlined'
 						color='secondary'
+						value={virtualArtData['nature_of_authorship_2']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, nature_of_authorship_2: e.target.value })
+						}
 					/>
 				</div>
 				{/*
-         ====================Form_2-END====================== 
+         ====================Form_2-End====================== 
+         */}
+			{/* 
          ====================Form_3====================== 
          */}
 				<div className='d-flex input_contained'>
@@ -175,6 +308,10 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['name_of_author_3']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, name_of_author_3: e.target.value })
+						}
 					/>
 					<TextField
 						label='Year of Birth'
@@ -182,15 +319,38 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['year_of_birth_3']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, year_of_birth_3: e.target.value })
+						}
 					/>
-					<TextField label=' Year of Death' margin='normal' variant='outlined' color='secondary' />
+					<TextField
+						label=' Year of Death'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						className='mr-3'
+						value={virtualArtData['year_of_death_3']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, year_of_death_3: e.target.value })
+						}
+					/>
+						
 				</div>
 				<div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was this a “work for hire”?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['work_for_hire_3']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, work_for_hire_3: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -201,22 +361,50 @@ function ContinuationSheet(props) {
 						variant='outlined'
 						color='secondary'
 						className='mr-3'
+						value={virtualArtData['citizen_of_3']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, citizen_of_3: e.target.value })
+						}
 					/>
-					<TextField label='Domiciled' margin='normal' variant='outlined' color='secondary' />
+					<TextField label='Domiciled'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						value={virtualArtData['domiciled_of_3']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, domiciled_of_3: e.target.value })
+						}
+					/>
 				</div>
 				<div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was the authorship anonymous ?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['authorship_anonymous_3']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, authorship_anonymous_3: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 					<div component='fieldset' className='mt-4 fieldset'>
 						<FormLabel component='legend'>Was the authorship pseudonymous ?</FormLabel>
-						<RadioGroup aria-label='radio' name='radio' className='flex-row'>
-							<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-							<FormControlLabel value='no' control={<Radio />} label='No' />
+						<RadioGroup
+							aria-label='radio'
+							name='radio'
+							className='flex-row'
+							value={virtualArtData['authorship_pseudonymous_3']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, authorship_pseudonymous_3: e.target.value })
+							}
+						>
+							<FormControlLabel value='true' control={<Radio />} label='Yes' />
+							<FormControlLabel value='false' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -227,10 +415,16 @@ function ContinuationSheet(props) {
 						margin='normal'
 						variant='outlined'
 						color='secondary'
+						value={virtualArtData['nature_of_authorship_3']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, nature_of_authorship_3: e.target.value })
+						}
 					/>
 				</div>
 
-				{/* FORM_3_END */}
+			{/*
+         ====================Form_3-End====================== 
+        	*/}
 
 				<div>
 					<div className='d-flex input_contained'>
@@ -240,21 +434,38 @@ function ContinuationSheet(props) {
 							variant='outlined'
 							color='secondary'
 							className='mr-3'
+							value={virtualArtData['continuation_name']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, continuation_name: e.target.value })
+						}
 						/>
 						<TextField
 							id='date'
 							label='Date'
 							type='date'
-							defaultValue='2017-05-24'
+							defaultValue='yyyy-mm-dd'
 							margin='normal'
 							variant='outlined'
 							color='secondary'
 							InputLabelProps={{
 								shrink: true,
 							}}
+							value={virtualArtData['continuation_date']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, continuation_date: e.target.value })
+							}
 						/>
 					</div>
-					<TextField label='Your Address:' margin='normal' variant='outlined' color='secondary' />
+					<TextField
+						label='Your Address:'
+						margin='normal'
+						variant='outlined'
+						color='secondary'
+						value={virtualArtData['continuation_address']}
+						onChange={(e) =>
+							setVirtualArtData({ ...virtualArtData, continuation_address: e.target.value })
+						}
+					/>
 					<div className='d-flex input_contained'>
 						<TextField
 							label='City:'
@@ -262,8 +473,20 @@ function ContinuationSheet(props) {
 							variant='outlined'
 							color='secondary'
 							className='mr-3'
+							value={virtualArtData['continuation_city']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, continuation_city: e.target.value })
+							}
 						/>
-						<FormControl className='mr-3' variant='outlined' margin='normal'>
+						<FormControl
+							className='mr-3'
+							variant='outlined'
+							margin='normal'
+							value={virtualArtData['continuation_state']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, continuation_state: e.target.value })
+							}
+						>
 							<InputLabel id='demo-simple-select-outlined-label'>State</InputLabel>
 							<Select
 								labelId='demo-simple-select-outlined-label'
@@ -323,7 +546,16 @@ function ContinuationSheet(props) {
 								<MenuItem value='Wyoming'>Wyoming</MenuItem>
 							</Select>
 						</FormControl>
-						<TextField label='Zip Code:' margin='normal' variant='outlined' color='secondary' />
+						<TextField
+							label='Zip Code:'
+							margin='normal'
+							variant='outlined'
+							color='secondary'
+							value={virtualArtData['continuation_zipcode']}
+							onChange={(e) =>
+								setVirtualArtData({ ...virtualArtData, continuation_zipcode: e.target.value })
+							}
+						/>
 					</div>
 				</div>
 			</Modal.Body>

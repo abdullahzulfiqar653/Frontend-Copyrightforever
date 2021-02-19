@@ -63,7 +63,6 @@ export default function CustomizedTables() {
 						</StyledTableCell>
 						<StyledTableCell align='center'>{row.form_name}</StyledTableCell>
 						<StyledTableCell align='center'>34</StyledTableCell>
-<<<<<<< HEAD
 						<StyledTableCell align='center'>29</StyledTableCell>
 						<StyledTableCell align='center'>100</StyledTableCell>
 						<StyledTableCell align='center'>
@@ -73,20 +72,6 @@ export default function CustomizedTables() {
 							<Button className='paid' variant='contained' color='secondary'>
 								Paid
 							</Button>
-=======
-						<StyledTableCell align='center'>99</StyledTableCell>
-						<StyledTableCell align='center'>133</StyledTableCell>
-							<StyledTableCell align='center'>
-								{row.paid ? (
-									<Button className='paid' variant='contained' color='secondary'>
-										Paid
-									</Button>
-								) : (
-									<Button className='paid unPaid' variant='contained' color='secondary'>
-										Unpaid
-									</Button>		
-								)}
->>>>>>> 930f285a45386db2c1fa6518e91081f4823a14b3
 						</StyledTableCell>
 					</StyledTableRow>
 					 ))}

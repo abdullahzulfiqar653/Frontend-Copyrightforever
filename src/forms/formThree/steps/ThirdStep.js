@@ -105,6 +105,8 @@ function ThirdStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					minLength="4"
+					maxlength="4"
 					value={virtualArtData['year']}
 					onChange={(e) =>
 						setVirtualArtData({ ...virtualArtData, year: e.target.value })

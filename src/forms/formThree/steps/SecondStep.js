@@ -150,7 +150,10 @@ function SecondStep({ setStep }) {
 			<Button onClick={() => setStep(1)} variant='contained' color='secondary'>
 				Previous
 			</Button>
-			<Button onClick={() => setStep(3)} variant='contained' color='primary'>
+			<Button onClick={() => {
+				console.log(virtualArtData)
+				setStep(3)
+			}} variant='contained' color='primary'>
 				Next
 			</Button>
 		</div>
