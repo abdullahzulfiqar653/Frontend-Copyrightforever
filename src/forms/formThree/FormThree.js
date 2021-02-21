@@ -14,6 +14,8 @@ import Steeper from '../components/Steeper';
 import TextSection from './steps/TextSection';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
+import axios from 'axios';
+import { REQUEST_URL } from '../../constant/Constant';
 
 export const multiStepContext = React.createContext();
 
@@ -24,6 +26,7 @@ function FormThree() {
 
 	//state & function for input data
 	const [virtualArtData, setVirtualArtData] = useState({
+		form_name: 'VA VitualArts Work',
 		name: '',
 		email_address: '',
 		mailing_address: '',
@@ -52,12 +55,12 @@ function FormThree() {
 		year: '',
 		nation: '',
 		claimant_name: '',
+		claimant_address: '',
+		claimant_address_1: '',
 		reciepient_name: '',
 		how_obtained_ownership: '',
 		previously_registered: '',
-		first_published_edition_of_work: '',
-		first_published_by_the_author: '',
-		changed_version_of_the_work: '',
+		reason: '',
 		prior_reg_number: '',
 		prior_reg_year: '',
 		identify_preexisting_work: '',
@@ -106,8 +109,24 @@ function FormThree() {
 		continuation_state: '',
 		continuation_zipcode: '',
 	});
-	const submitData = () => {
-		console.log(virtualArtData, virtualArtData.file);
+	const submitData = async () => {
+		const config = {
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `JWT ${localStorage.getItem('access')}`,
+			Accept: 'application/json',
+			},
+		}
+		const body = JSON.stringify(virtualArtData)
+		console.log(body);
+		try {
+			const res = await axios.post(REQUEST_URL + `/api/form/add`, body, config);
+			console.log(res.data, "this is response")
+		}
+		catch (error) {
+			console.log(error, "this is error")
+		}
+		console.log(virtualArtData)
 	};
 
 	useEffect(() => {

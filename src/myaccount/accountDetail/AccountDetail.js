@@ -19,6 +19,7 @@ const AccountDetail = () => {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
+		console.log(userProfile, "qqq")
 		const { phone, address, state, postcode } = userProfile;
 		dispatch(update_profile(phone, address, state, postcode));
 	};

@@ -39,9 +39,9 @@ function FifthStep({ setStep }) {
 					<RadioGroup
 						aria-label='radio'
 						name='radio'
-						value={virtualArtData['reasonForAnotherRegistration']}
+						value={virtualArtData['reason']}
 						onChange={(e) =>
-							setVirtualArtData({ ...virtualArtData, reasonForAnotherRegistration: e.target.value })
+							setVirtualArtData({ ...virtualArtData, reason: e.target.value })
 						}
 					>
 						<FormControlLabel
@@ -69,9 +69,9 @@ function FifthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['priorRegistrationNo']}
+					value={virtualArtData['prior_reg_number']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, priorRegistrationNo: e.target.value })
+						setVirtualArtData({ ...virtualArtData, prior_reg_number: e.target.value })
 					}
 				/>
 				<TextField
@@ -79,9 +79,9 @@ function FifthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-					value={virtualArtData['priorRegistrationYear']}
+					value={virtualArtData['prior_reg_year']}
 					onChange={(e) =>
-						setVirtualArtData({ ...virtualArtData, priorRegistrationYear: e.target.value })
+						setVirtualArtData({ ...virtualArtData, prior_reg_year: e.target.value })
 					}
 				/>
 			</div>

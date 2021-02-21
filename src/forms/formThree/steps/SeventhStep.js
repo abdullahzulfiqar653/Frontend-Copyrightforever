@@ -5,6 +5,7 @@ import { multiStepContext } from '../FormThree.js';
 function SeventhStep({ setStep }) {
 	const hiddenInput = React.useRef(null);
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
+	// onchange
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>
@@ -40,12 +41,23 @@ function SeventhStep({ setStep }) {
 				<strong className='strong'>Upload file here:</strong>{' '}
 				<input
 					type='file'
+					name='file'
 					onChange={(e) => {
-						const fileReader = new FileReader();
-						fileReader.readAsDataURL(e.target.files[0]);
-						fileReader.onload = (e) => {
-							setVirtualArtData({ ...virtualArtData, file: e.target.result });
-						};
+						let file = e.target.files[0]
+						let data = new FormData()
+						// var FormData: new (form?: HTMLFormElement) => FormData interface FormData
+						console.log(file, "this is file")
+						data.append('file', file)
+						
+						console.log(data.get('file'), "aaaaaaaaaaaa")
+						console.log(Array.from(data), "bbbbbbbbbb")
+						setVirtualArtData({ ...virtualArtData, file: data });
+						// console.log(e.target.files[0])
+						// const fileReader = new FileReader();
+						// fileReader.readAsDataURL(e.target.files[0]);
+						// fileReader.onload = (e) => {
+						// 	setVirtualArtData({ ...virtualArtData, file: e.target.result });
+						// };
 					}}
 					ref={hiddenInput}
 					className='d-none'
@@ -60,7 +72,10 @@ function SeventhStep({ setStep }) {
 					Upload
 				</Button>
 			</h5>
-			<Button onClick={() => setStep(6)} variant='contained' color='secondary'>
+			<Button onClick={() => {
+				console.log(virtualArtData)
+				setStep(6)
+			}} variant='contained' color='secondary'>
 				Previous
 			</Button>
 			<Button onClick={() => setStep(8)} variant='contained' color='primary'>

@@ -62,16 +62,21 @@ export default function CustomizedTables() {
 							{row.submitted_at}
 						</StyledTableCell>
 						<StyledTableCell align='center'>{row.form_name}</StyledTableCell>
-						<StyledTableCell align='center'>34</StyledTableCell>
-						<StyledTableCell align='center'>29</StyledTableCell>
-						<StyledTableCell align='center'>100</StyledTableCell>
-						<StyledTableCell align='center'>
-							<Button className='unPaid' variant='contained' color='secondary'>
-								Unpaid
-							</Button>
-							<Button className='paid' variant='contained' color='secondary'>
-								Paid
-							</Button>
+						<StyledTableCell align='center'>$34</StyledTableCell>
+						<StyledTableCell align='center'>$99</StyledTableCell>
+						<StyledTableCell align='center'>$133</StyledTableCell>
+							<StyledTableCell align='center'>
+								{row.paid ? (
+									<Button className='paid' variant='contained' color='secondary'>
+										Paid
+									</Button>
+								) : (
+									<Button className='unPaid' variant='contained' color='secondary'>
+										Unpaid
+									</Button>
+								)}
+							
+							
 						</StyledTableCell>
 					</StyledTableRow>
 					 ))}

@@ -36,8 +36,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
-					value={virtualArtData['claimant_address1']}
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, claimant_address1: e.target.value })}
+					value={virtualArtData['claimant_address_1']}
+					onChange={(e) => setVirtualArtData({ ...virtualArtData, claimant_address_1: e.target.value })}
 				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
