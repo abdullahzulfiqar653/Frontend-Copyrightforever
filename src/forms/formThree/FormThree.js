@@ -27,19 +27,22 @@ function FormThree() {
 	//state & function for input data
 	const [virtualArtData, setVirtualArtData] = useState({
 		form_name: 'VA VitualArts Work',
+		// form_start_from here
 		name: '',
 		email_address: '',
 		mailing_address: '',
 		city: '',
 		state: '',
 		zipcode: '',
+		//section_1
 		title_of_work: '',
 		prior_title: '',
 		title_of_collective_work: '',
 		volume: '',
 		number: '',
-		issue: '',
+		issue_data: '',
 		pages: '',
+		// section 2
 		name_of_author: '',
 		year_of_birth: '',
 		year_of_death: '',
@@ -49,32 +52,41 @@ function FormThree() {
 		authorship_anonymous: '',
 		authorship_pseudonymous: '',
 		nature_of_authorship: '',
+		// section 3
 		year_of_authorship: '',
-		month: '',
-		day: '',
-		year: '',
+		date_of_authorship: '',
 		nation: '',
+		// section 4
 		claimant_name: '',
 		claimant_address: '',
 		claimant_address_1: '',
 		reciepient_name: '',
 		how_obtained_ownership: '',
+		// section 5
 		previously_registered: '',
-		reason: '',
+		first_published_edition_of_work: false,
+		first_application_by_the_author: false,
+		changed_version_of_the_work: false,
 		prior_reg_number: '',
 		prior_reg_year: '',
+		// section 6
 		identify_preexisting_work: '',
 		describe_preexisting_work: '',
+		// section 7
 		file: null,
+		// section 8
 		employer_name: '',
 		employer_date_of_birth: '',
 		date_of_hiring: '',
 		employer_address: '',
 		date_of_employing_copyright: '',
 		sign_image: null,
+		// section 9
 		certification_name: '',
+		// from here continuation sheet start
 		continuation_title: '',
 		name_and_address: '',
+		// continuation_section_1
 		name_of_author_1: '',
 		year_of_birth_1: '',
 		year_of_death_1: '',
@@ -84,6 +96,7 @@ function FormThree() {
 		authorship_anonymous_1: '',
 		authorship_pseudonymous_1: '',
 		nature_of_authorship_1: '',
+		// continuation_section_2
 		name_of_author_2: '',
 		year_of_birth_2: '',
 		year_of_death_2: '',
@@ -93,6 +106,7 @@ function FormThree() {
 		authorship_anonymous_2: '',
 		authorship_pseudonymous_2: '',
 		nature_of_authorship_2: '',
+		// continuation_section_3
 		name_of_author_3: '',
 		year_of_birth_3: '',
 		year_of_death_3: '',
@@ -102,6 +116,7 @@ function FormThree() {
 		authorship_anonymous_3: '',
 		authorship_pseudonymous_3: '',
 		nature_of_authorship_3: '',
+		// continuation_form_last_fields_after_Authors
 		continuation_name: '',
 		continuation_date: '',
 		continuation_address: '',
@@ -110,6 +125,7 @@ function FormThree() {
 		continuation_zipcode: '',
 	});
 	const submitData = async () => {
+		console.log(virtualArtData, "aaaaaaaaaaaaa")
 		const config = {
 		headers: {
 			'Content-Type': 'application/json',
@@ -118,14 +134,17 @@ function FormThree() {
 			},
 		}
 		const body = JSON.stringify(virtualArtData)
-		console.log(body);
+		
 		try {
-			const res = await axios.post(REQUEST_URL + `/api/form/add`, body, config);
-			console.log(res.data, "this is response")
-		}
-		catch (error) {
-			console.log(error, "this is error")
-		}
+      		const res = await axios.post(
+        	REQUEST_URL + `/api/form/add`,
+        	body,
+        	config
+			);
+			console.log(res);
+    	} catch (error) {
+      		console.log("in catch block", error.response);
+    	}
 		console.log(virtualArtData)
 	};
 

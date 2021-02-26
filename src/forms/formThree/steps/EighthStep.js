@@ -158,6 +158,8 @@ function EighthStep({ setStep, setModal, modal }) {
 				<input
 					type='file'
 					onChange={(e) => {
+						// let file = e.target.files[0]
+						// let data = new FormData()
 						const fileReader = new FileReader();
 						fileReader.readAsDataURL(e.target.files[0]);
 						fileReader.onload = (e) => {

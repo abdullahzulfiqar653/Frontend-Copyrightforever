@@ -64,7 +64,7 @@ function FirstStep({ setStep }) {
 					className='mr-3'
 					label='Issue Date'
 					type='date'
-					defaultValue='2017-05-24'
+					defaultValue='yyyy-mm-dd'
 					margin='normal'
 					variant='outlined'
 					color='secondary'

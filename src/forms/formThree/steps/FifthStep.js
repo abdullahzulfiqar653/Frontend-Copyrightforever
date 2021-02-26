@@ -39,9 +39,26 @@ function FifthStep({ setStep }) {
 					<RadioGroup
 						aria-label='radio'
 						name='radio'
-						value={virtualArtData['reason']}
+						// value={virtualArtData['reason']}
 						onChange={(e) =>
-							setVirtualArtData({ ...virtualArtData, reason: e.target.value })
+						{
+							const a = String(e.target.value)
+							switch (a) {
+								case 'first_published_edition_of_work':
+									console.log(e.target.value)
+									setVirtualArtData({ ...virtualArtData, first_published_edition_of_work: true })
+									console.log(virtualArtData)
+									break;
+								case 'first_application_by_the_author':
+									setVirtualArtData({ ...virtualArtData, first_application_by_the_author: true })
+									console.log(virtualArtData)
+									break;
+								case 'changed_version_of_the_work':
+									setVirtualArtData({ ...virtualArtData, changed_version_of_the_work: true })
+									console.log(virtualArtData)
+									break;
+							}
+						}
 						}
 					>
 						<FormControlLabel

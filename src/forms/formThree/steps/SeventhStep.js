@@ -45,12 +45,13 @@ function SeventhStep({ setStep }) {
 					onChange={(e) => {
 						let file = e.target.files[0]
 						let data = new FormData()
+						console.log(e.target.files, "files")
 						// var FormData: new (form?: HTMLFormElement) => FormData interface FormData
 						console.log(file, "this is file")
 						data.append('file', file)
 						
 						console.log(data.get('file'), "aaaaaaaaaaaa")
-						console.log(Array.from(data), "bbbbbbbbbb")
+
 						setVirtualArtData({ ...virtualArtData, file: data });
 						// console.log(e.target.files[0])
 						// const fileReader = new FileReader();
