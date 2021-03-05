@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormTwo'
 
 function TextSection({ text, textField, setModalShow }) {
+	const { literaryWorksData, setLiteraryWorksData} = useContext(multiStepContext);
 	return (
 		<>
 			<Row>
@@ -31,12 +33,18 @@ function TextSection({ text, textField, setModalShow }) {
 								variant='outlined'
 								color='secondary'
 								className='mr-3'
+								value={literaryWorksData['name']}
+								onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, name: e.target.value })}
 							/>
 							<TextField
 								label='Your Email Address:'
 								margin='normal'
 								variant='outlined'
 								color='secondary'
+								value={literaryWorksData['email_address']}
+								onChange={(e) =>
+									setLiteraryWorksData({ ...literaryWorksData, email_address: e.target.value })
+								}
 							/>
 						</div>
 						{textField}

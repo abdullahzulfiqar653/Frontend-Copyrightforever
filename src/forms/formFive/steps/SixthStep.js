@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormFive.js'
 
 function SixthStep({ setStep }) {
+	const { serialWorkData, setSerialWorkData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3>Derivative Work or Compilation Work</h3>
@@ -12,6 +14,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={serialWorkData['identify_preexisting_work']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, identify_preexisting_work: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -20,6 +24,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={serialWorkData['describe_preexisting_work']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, describe_preexisting_work: e.target.value })}
 				/>
 			</div>
 
@@ -32,5 +38,4 @@ function SixthStep({ setStep }) {
 		</div>
 	);
 }
-
 export default SixthStep;

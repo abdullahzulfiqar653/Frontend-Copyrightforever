@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import FormLabel from '@material-ui/core/FormLabel';
+import { multiStepContext } from '../FormFive.js'
 
-function FourthStep({ setStep }) {
+function FourthStep({ setStep }){
+	const { serialWorkData, setSerialWorkData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3>Copyright Claimants</h3>
@@ -16,6 +18,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={serialWorkData['claimant_name']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, claimant_name: e.target.value })}
 				/>
 				<TextField
 					label='Address'
@@ -23,8 +27,18 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={serialWorkData['claimant_address']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, claimant_address: e.target.value })}
 				/>
-				<TextField label=' Address' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label=' Address'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					className='mr-3'
+					value={serialWorkData['claimant_address_1']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, claimant_address_1: e.target.value })}
+				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
 				Has the copyright been transferred?
@@ -35,6 +49,11 @@ function FourthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					className='mr-3'
+					value={serialWorkData['reciepient_name']}
+					onChange={(e) =>
+						setSerialWorkData({ ...serialWorkData, reciepient_name: e.target.value })
+					}
 				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
@@ -47,6 +66,11 @@ function FourthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					className='mr-3'
+					value={serialWorkData['how_obtained_ownership']}
+					onChange={(e) =>
+						setSerialWorkData({ ...serialWorkData, how_obtained_ownership: e.target.value })
+					}
 				/>
 			</div>
 			<Button onClick={() => setStep(3)} variant='contained' color='secondary'>

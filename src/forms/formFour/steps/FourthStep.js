@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import FormLabel from '@material-ui/core/FormLabel';
+import { multiStepContext } from '../FormFour.js'
 
 function FourthStep({ setStep }) {
+	const { soundRecordingData, setSoundRecordingData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3>Copyright Claimants</h3>
@@ -16,6 +18,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={soundRecordingData['claimant_name']}
+					onChange={(e) => setSoundRecordingData({ ...soundRecordingData, claimant_name: e.target.value })}
 				/>
 				<TextField
 					label='Address'
@@ -23,8 +27,18 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={soundRecordingData['claimant_address']}
+					onChange={(e) => setSoundRecordingData({ ...soundRecordingData, claimant_address: e.target.value })}
 				/>
-				<TextField label=' Address' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label=' Address'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					className='mr-3'
+					value={soundRecordingData['claimant_address_1']}
+					onChange={(e) => setSoundRecordingData({ ...soundRecordingData, claimant_address_1: e.target.value })}
+				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
 				Has the copyright been transferred?
@@ -35,6 +49,11 @@ function FourthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					className='mr-3'
+					value={soundRecordingData['reciepient_name']}
+					onChange={(e) =>
+						setSoundRecordingData({ ...soundRecordingData, reciepient_name: e.target.value })
+					}
 				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
@@ -47,6 +66,11 @@ function FourthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					className='mr-3'
+					value={soundRecordingData['how_obtained_ownership']}
+					onChange={(e) =>
+						setSoundRecordingData({ ...soundRecordingData, how_obtained_ownership: e.target.value })
+					}
 				/>
 			</div>
 			<Button onClick={() => setStep(3)} variant='contained' color='secondary'>

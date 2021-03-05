@@ -12,7 +12,7 @@ const AccountDetail = () => {
 	useEffect(() => {
 		dispatch(load_user());
 	}, [dispatch]);
-
+	console.log(user)
 	const onChange = (e) => {
 		setUserProfile({ ...user.profile, [e.target.name]: e.target.value });
 	};

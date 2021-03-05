@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Button } from '@material-ui/core';
+import { multiStepContext } from '../FormOne.js';
+import { useHistory } from 'react-router-dom';
+import Loader from "react-loader-spinner";
 
 function NinthStep({ setStep }) {
+	const { submitData } = useContext(multiStepContext);
+	const { performingArtData, setPerformingArtData } = useContext(multiStepContext);
+	const { error } = useContext(multiStepContext);
+	const { loading } = useContext(multiStepContext);
+	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+	const history = useHistory()
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>
@@ -10,7 +20,13 @@ function NinthStep({ setStep }) {
 			<div>
 				<div component='fieldset' className='mt-4 fieldset'>
 					<h5 style={{ lineHeight: '1.7' }}>
-						I <input type='text' placeholder='Name' className='mr-2' />
+						I <input
+							type='text'
+							placeholder='Name'
+							className='mr-2'
+							value={performingArtData['certification_name']}
+							onChange={(e) => setPerformingArtData({ ...performingArtData, certification_name: e.target.value })}
+							/>
 						and aware that, under the Copyright Act of 1976, as amended, at 17 U.S.C.
 						§506(e), the law provides: “Any person who knowingly makes a false
 						representation of a material fact in the application for copyright
@@ -23,9 +39,28 @@ function NinthStep({ setStep }) {
 			<Button onClick={() => setStep(8)} variant='contained' color='secondary'>
 				Previous
 			</Button>
-			<Button variant='contained' color='primary'>
+			<Button variant='contained' color='primary' onClick={isAuthenticated ? submitData : history.push('/login')}>
+				{loading ? (
+						<Loader
+							style={{ display: 'inline-block' }}
+							type="ThreeDots"
+							color='white'
+							height={5}
+							width={30}
+						/>
+					) : ('')}
 				Submit
 			</Button>
+			{isAuthenticated && error != null && error != undefined
+				? Object.keys(error.response.data).map((key, index) => (
+						<ul key={index} style={{ paddingLeft: '20px' }}>
+							<li style={{ color: 'red', fontSize: '22px', listStyleType:"square" }}>
+							<span><strong>{key.toUpperCase()}</strong> : </span>
+								<span><strong>{error.response.data[key]}</strong></span>
+							</li>
+						</ul>
+					))
+			: null}
 		</div>
 	);
 }

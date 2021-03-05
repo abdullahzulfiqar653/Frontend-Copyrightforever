@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormFive.js'
+
 
 function TextSection({ text, textField, setModalShow }) {
+	const { serialWorkData, setSerialWorkData } = useContext(multiStepContext);
 	return (
 		<>
 			<Row>
@@ -25,18 +28,24 @@ function TextSection({ text, textField, setModalShow }) {
 				<div>
 					<div>
 						<div className='d-flex input_contained'>
-							<TextField
+						<TextField
 								label='Please Tell Us Your Name :'
 								margin='normal'
 								variant='outlined'
 								color='secondary'
 								className='mr-3'
+								value={serialWorkData['name']}
+								onChange={(e) => setSerialWorkData({ ...serialWorkData, name: e.target.value })}
 							/>
 							<TextField
 								label='Your Email Address:'
 								margin='normal'
 								variant='outlined'
 								color='secondary'
+								value={serialWorkData['email_address']}
+								onChange={(e) =>
+									setSerialWorkData({ ...serialWorkData, email_address: e.target.value })
+								}
 							/>
 						</div>
 						{textField}

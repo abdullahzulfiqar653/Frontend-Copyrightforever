@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormFour.js'
 
 function TextSection({ text, textField, setModalShow }) {
+	const { soundRecordingData, setSoundRecordingData } = useContext(multiStepContext);
 	return (
 		<>
 			<Row>
@@ -31,12 +33,18 @@ function TextSection({ text, textField, setModalShow }) {
 								variant='outlined'
 								color='secondary'
 								className='mr-3'
+								value={soundRecordingData['name']}
+								onChange={(e) => setSoundRecordingData({ ...soundRecordingData, name: e.target.value })}
 							/>
 							<TextField
 								label='Your Email Address:'
 								margin='normal'
 								variant='outlined'
 								color='secondary'
+								value={soundRecordingData['email_address']}
+								onChange={(e) =>
+									setSoundRecordingData({ ...soundRecordingData, email_address: e.target.value })
+								}
 							/>
 						</div>
 						{textField}

@@ -93,8 +93,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, work_for_hire_1: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -133,8 +133,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, authorship_anonymous_1: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 					<div component='fieldset' className='mt-4 fieldset'>
@@ -148,8 +148,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, authorship_pseudonymous_1: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -222,8 +222,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, work_for_hire_2: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -262,8 +262,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, authorship_anonymous_2: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 					<div component='fieldset' className='mt-4 fieldset'>
@@ -277,8 +277,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, authorship_pseudonymous_2: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -349,8 +349,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, work_for_hire_3: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -388,8 +388,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, authorship_anonymous_3: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 					<div component='fieldset' className='mt-4 fieldset'>
@@ -403,8 +403,8 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, authorship_pseudonymous_3: e.target.value })
 							}
 						>
-							<FormControlLabel value='true' control={<Radio />} label='Yes' />
-							<FormControlLabel value='false' control={<Radio />} label='No' />
+							<FormControlLabel value='1' control={<Radio />} label='Yes' />
+							<FormControlLabel value='0' control={<Radio />} label='No' />
 						</RadioGroup>
 					</div>
 				</div>
@@ -478,74 +478,68 @@ function ContinuationSheet(props) {
 								setVirtualArtData({ ...virtualArtData, continuation_city: e.target.value })
 							}
 						/>
-						<FormControl
-							className='mr-3'
-							variant='outlined'
-							margin='normal'
-							value={virtualArtData['continuation_state']}
-							onChange={(e) =>
-								setVirtualArtData({ ...virtualArtData, continuation_state: e.target.value })
-							}
-						>
-							<InputLabel id='demo-simple-select-outlined-label'>State</InputLabel>
-							<Select
-								labelId='demo-simple-select-outlined-label'
-								id='demo-simple-select-outlined'
-								label='Age'
-							>
-								<MenuItem value=''>
-									<em>None</em>
-								</MenuItem>
-								<MenuItem value='Alabama'>Alabama</MenuItem>
-								<MenuItem value='Alaska'>Alaska</MenuItem>
-								<MenuItem value='Arizona'>Arizona</MenuItem>
-								<MenuItem value='California'>California</MenuItem>
-								<MenuItem value='Colorado'>Colorado</MenuItem>
-								<MenuItem value='Connecticut'>Connecticut</MenuItem>
-								<MenuItem value='Delaware'>Delaware</MenuItem>
-								<MenuItem value='Florida'>Florida</MenuItem>
-								<MenuItem value='Georgia'>Georgia</MenuItem>
-								<MenuItem value='Hawaii'>Hawaii</MenuItem>
-								<MenuItem value='Idaho'>Idaho</MenuItem>
-								<MenuItem value='Illinois'>Illinois</MenuItem>
-								<MenuItem value='Indiana'>Indiana</MenuItem>
-								<MenuItem value='Iowa'>Iowa</MenuItem>
-								<MenuItem value='Kansas'>Kansas</MenuItem>
-								<MenuItem value='Kentucky'>Kentucky</MenuItem>
-								<MenuItem value='Louisiana'>Louisiana</MenuItem>
-								<MenuItem value='Maine'>Maine</MenuItem>
-								<MenuItem value='Maryland'>Maryland</MenuItem>
-								<MenuItem value='Massachusetts'>Massachusetts</MenuItem>
-								<MenuItem value='Michigan'>Michigan</MenuItem>
-								<MenuItem value='Minnesota'>Minnesota</MenuItem>
-								<MenuItem value='Mississippi'>Mississippi</MenuItem>
-								<MenuItem value='Missouri'>Missouri</MenuItem>
-								<MenuItem value='Montana'>Montana</MenuItem>
-								<MenuItem value='Nebraska'>Nebraska</MenuItem>
-								<MenuItem value='Nevada'>Nevada</MenuItem>
-								<MenuItem value='New Hampshire'>New Hampshire</MenuItem>
-								<MenuItem value='New Mexico'>New Mexico</MenuItem>
-								<MenuItem value='New York'>New York</MenuItem>
-								<MenuItem value='North Carolina'>North Carolina</MenuItem>
-								<MenuItem value='North Dakota'>North Dakota</MenuItem>
-								<MenuItem value='Ohio'>Ohio</MenuItem>
-								<MenuItem value='Oklahoma'>Oklahoma</MenuItem>
-								<MenuItem value='Oregon'>Oregon</MenuItem>
-								<MenuItem value='Pennsylvania'>Pennsylvania</MenuItem>
-								<MenuItem value='Rhoda Island'>Rhoda Island</MenuItem>
-								<MenuItem value='South Carolina'>South Carolina</MenuItem>
-								<MenuItem value='South Dakota'>South Dakota</MenuItem>
-								<MenuItem value='Tennessee'>Tennessee</MenuItem>
-								<MenuItem value='Texas'>Texas</MenuItem>
-								<MenuItem value='Utah'>Utah</MenuItem>
-								<MenuItem value='Vermont'>Vermont</MenuItem>
-								<MenuItem value='Virginia'>Virginia</MenuItem>
-								<MenuItem value='Washington'>Washington</MenuItem>
-								<MenuItem value='West Virginia'>West Virginia</MenuItem>
-								<MenuItem value='Wisconsin'>Wisconsin</MenuItem>
-								<MenuItem value='Wyoming'>Wyoming</MenuItem>
-							</Select>
-						</FormControl>
+						<FormControl className='mr-3' variant='outlined' margin='normal'>
+									<InputLabel htmlFor='continuation state'>Continuation State</InputLabel>
+									<Select
+										// labelId='demo-simple-select-outlined-label'
+										// id='demo-simple-select-outlined'
+										label='Age'
+										value={virtualArtData['continuation_state']}
+										onChange={(e) =>
+											setVirtualArtData({ ...virtualArtData, continuation_state: e.target.value })
+										}
+									>
+										<MenuItem value=''>Continuation State</MenuItem>
+										<MenuItem value='Alabama'>Alabama</MenuItem>
+										<MenuItem value='Alaska'>Alaska</MenuItem>
+										<MenuItem value='Arizona'>Arizona</MenuItem>
+										<MenuItem value='California'>California</MenuItem>
+										<MenuItem value='Colorado'>Colorado</MenuItem>
+										<MenuItem value='Connecticut'>Connecticut</MenuItem>
+										<MenuItem value='Delaware'>Delaware</MenuItem>
+										<MenuItem value='Florida'>Florida</MenuItem>
+										<MenuItem value='Georgia'>Georgia</MenuItem>
+										<MenuItem value='Hawaii'>Hawaii</MenuItem>
+										<MenuItem value='Idaho'>Idaho</MenuItem>
+										<MenuItem value='Illinois'>Illinois</MenuItem>
+										<MenuItem value='Indiana'>Indiana</MenuItem>
+										<MenuItem value='Iowa'>Iowa</MenuItem>
+										<MenuItem value='Kansas'>Kansas</MenuItem>
+										<MenuItem value='Kentucky'>Kentucky</MenuItem>
+										<MenuItem value='Louisiana'>Louisiana</MenuItem>
+										<MenuItem value='Maine'>Maine</MenuItem>
+										<MenuItem value='Maryland'>Maryland</MenuItem>
+										<MenuItem value='Massachusetts'>Massachusetts</MenuItem>
+										<MenuItem value='Michigan'>Michigan</MenuItem>
+										<MenuItem value='Minnesota'>Minnesota</MenuItem>
+										<MenuItem value='Mississippi'>Mississippi</MenuItem>
+										<MenuItem value='Missouri'>Missouri</MenuItem>
+										<MenuItem value='Montana'>Montana</MenuItem>
+										<MenuItem value='Nebraska'>Nebraska</MenuItem>
+										<MenuItem value='Nevada'>Nevada</MenuItem>
+										<MenuItem value='New Hampshire'>New Hampshire</MenuItem>
+										<MenuItem value='New Mexico'>New Mexico</MenuItem>
+										<MenuItem value='New York'>New York</MenuItem>
+										<MenuItem value='North Carolina'>North Carolina</MenuItem>
+										<MenuItem value='North Dakota'>North Dakota</MenuItem>
+										<MenuItem value='Ohio'>Ohio</MenuItem>
+										<MenuItem value='Oklahoma'>Oklahoma</MenuItem>
+										<MenuItem value='Oregon'>Oregon</MenuItem>
+										<MenuItem value='Pennsylvania'>Pennsylvania</MenuItem>
+										<MenuItem value='Rhoda Island'>Rhoda Island</MenuItem>
+										<MenuItem value='South Carolina'>South Carolina</MenuItem>
+										<MenuItem value='South Dakota'>South Dakota</MenuItem>
+										<MenuItem value='Tennessee'>Tennessee</MenuItem>
+										<MenuItem value='Texas'>Texas</MenuItem>
+										<MenuItem value='Utah'>Utah</MenuItem>
+										<MenuItem value='Vermont'>Vermont</MenuItem>
+										<MenuItem value='Virginia'>Virginia</MenuItem>
+										<MenuItem value='Washington'>Washington</MenuItem>
+										<MenuItem value='West Virginia'>West Virginia</MenuItem>
+										<MenuItem value='Wisconsin'>Wisconsin</MenuItem>
+										<MenuItem value='Wyoming'>Wyoming</MenuItem>
+									</Select>
+								</FormControl>
 						<TextField
 							label='Zip Code:'
 							margin='normal'

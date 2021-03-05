@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -8,6 +8,7 @@ import { multiStepContext } from '../FormThree.js';
 
 function FifthStep({ setStep }) {
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
+	const [valueTake, setValueTake] = useState('');
 
 	return (
 		<div>
@@ -26,8 +27,8 @@ function FifthStep({ setStep }) {
 							setVirtualArtData({ ...virtualArtData, previously_registered: e.target.value })
 						}
 					>
-						<FormControlLabel value='true' control={<Radio />} label='Yes' />
-						<FormControlLabel value='false' control={<Radio />} label='No' />
+						<FormControlLabel value='1' control={<Radio />} label='Yes' />
+						<FormControlLabel value='0' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>
@@ -42,22 +43,7 @@ function FifthStep({ setStep }) {
 						// value={virtualArtData['reason']}
 						onChange={(e) =>
 						{
-							const a = String(e.target.value)
-							switch (a) {
-								case 'first_published_edition_of_work':
-									console.log(e.target.value)
-									setVirtualArtData({ ...virtualArtData, first_published_edition_of_work: true })
-									console.log(virtualArtData)
-									break;
-								case 'first_application_by_the_author':
-									setVirtualArtData({ ...virtualArtData, first_application_by_the_author: true })
-									console.log(virtualArtData)
-									break;
-								case 'changed_version_of_the_work':
-									setVirtualArtData({ ...virtualArtData, changed_version_of_the_work: true })
-									console.log(virtualArtData)
-									break;
-							}
+							setValueTake(String(e.target.value))
 						}
 						}
 					>
@@ -105,7 +91,39 @@ function FifthStep({ setStep }) {
 			<Button onClick={() => setStep(4)} variant='contained' color='secondary'>
 				Previous
 			</Button>
-			<Button onClick={() => setStep(6)} variant='contained' color='primary'>
+			<Button onClick={() => {
+				console.log(valueTake)
+				switch (String(valueTake)) {
+					case 'first_published_edition_of_work':
+						setVirtualArtData({
+							...virtualArtData,
+							first_published_edition_of_work: '1',
+							first_application_by_the_author: '0',
+							changed_version_of_the_work: '0'
+						})
+						console.log(virtualArtData, "1")
+						break;
+					case 'first_application_by_the_author':
+						setVirtualArtData({
+							...virtualArtData,
+							first_application_by_the_author: '1',
+							first_published_edition_of_work: '0',
+							changed_version_of_the_work: '0'
+						})
+						console.log(virtualArtData, "2")
+						break;
+					case 'changed_version_of_the_work':
+						setVirtualArtData({
+							...virtualArtData,
+							changed_version_of_the_work: '1',
+							first_application_by_the_author: '0',
+							first_published_edition_of_work: '0'
+						})
+						console.log(virtualArtData, "3")
+						break;
+						}
+				setStep(6)
+			}} variant='contained' color='primary'>
 				Next
 			</Button>
 		</div>

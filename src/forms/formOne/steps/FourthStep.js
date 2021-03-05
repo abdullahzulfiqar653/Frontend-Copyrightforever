@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import FormLabel from '@material-ui/core/FormLabel';
+import { multiStepContext } from '../FormOne.js';
 
 function FourthStep({ setStep }) {
+	const { performingArtData, setPerformingArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3>Copyright Claimants</h3>
@@ -16,6 +18,8 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={performingArtData['claimant_name']}
+					onChange={(e) => setPerformingArtData({ ...performingArtData, claimant_name: e.target.value })}
 				/>
 				<TextField
 					label='Address'
@@ -23,8 +27,18 @@ function FourthStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={performingArtData['claimant_address']}
+					onChange={(e) => setPerformingArtData({ ...performingArtData, claimant_address: e.target.value })}
 				/>
-				<TextField label=' Address' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label=' Address'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					className='mr-3'
+					value={performingArtData['claimant_address_1']}
+					onChange={(e) => setPerformingArtData({ ...performingArtData, claimant_address_1: e.target.value })}
+				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
 				Has the copyright been transferred?
@@ -35,7 +49,12 @@ function FourthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
-				/>
+					className='mr-3'
+					value={performingArtData['reciepient_name']}
+					onChange={(e) =>
+						setPerformingArtData({ ...performingArtData, reciepient_name: e.target.value })
+					}
+			/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
 				and briefly explain how the recipient obtained ownership from the author listed
@@ -47,6 +66,11 @@ function FourthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					className='mr-3'
+					value={performingArtData['how_obtained_ownership']}
+					onChange={(e) =>
+						setPerformingArtData({ ...performingArtData, how_obtained_ownership: e.target.value })
+					}
 				/>
 			</div>
 			<Button onClick={() => setStep(3)} variant='contained' color='secondary'>

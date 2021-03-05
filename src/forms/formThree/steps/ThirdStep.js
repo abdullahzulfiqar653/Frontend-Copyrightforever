@@ -6,9 +6,9 @@ import { multiStepContext } from '../FormThree.js';
 function ThirdStep({ setStep }) {
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 	const [date, setDatee] = useState({
-		day: 'dd',
-		month: 'mm',
-		year: 'yyyy'
+		day: '',
+		month: '',
+		year: ''
 	});
 	const onChange = (e) => {
 		setDatee({ ...date, [e.target.name]: e.target.value });

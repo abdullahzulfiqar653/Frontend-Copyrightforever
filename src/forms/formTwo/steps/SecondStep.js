@@ -1,19 +1,21 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import Model from '../continuosSheet/ContinuationSheet';
+import { multiStepContext } from '../FormTwo.js';
+
 
 function SecondStep({ setStep }) {
+	const { literaryWorksData, setLiteraryWorksData } = useContext(multiStepContext);
 	const [continueSheet, setContinueSheet] = React.useState(false);
-	const [value, setValue] = React.useState('female');
+	// const [value, setValue] = React.useState('female');
 
-	const handleChange = (event) => {
-		setValue(event.target.value);
-	};
+	// const handleChange = (event) => {
+	// 	setValue(event.target.value);
+	// };
 
 	return (
 		<div>
@@ -25,6 +27,8 @@ function SecondStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={literaryWorksData['name_of_author']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, name_of_author: e.target.value })}
 				/>
 				<TextField
 					label='Year of Birth'
@@ -32,8 +36,17 @@ function SecondStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={literaryWorksData['year_of_birth']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, year_of_birth: e.target.value })}
 				/>
-				<TextField label=' Year of Death' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label=' Year of Death'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					value={literaryWorksData['year_of_death']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, year_of_death: e.target.value })}
+				/>
 			</div>
 			<div>
 				<div component='fieldset' className='mt-4 fieldset'>
@@ -41,12 +54,14 @@ function SecondStep({ setStep }) {
 					<RadioGroup
 						aria-label='radio'
 						name='radio'
-						value={value}
-						onChange={handleChange}
 						className='flex-row'
+						value={literaryWorksData['work_for_hire']}
+						onChange={(e) =>
+							setLiteraryWorksData({ ...literaryWorksData, work_for_hire: e.target.value })
+						}
 					>
-						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-						<FormControlLabel value='no' control={<Radio />} label='No' />
+						<FormControlLabel value='1' control={<Radio />} label='Yes' />
+						<FormControlLabel value='0' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>
@@ -57,8 +72,17 @@ function SecondStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={literaryWorksData['citizen_of']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, citizen_of: e.target.value })}
 				/>
-				<TextField label='Domiciled in' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label='Domiciled'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					value={literaryWorksData['domiciled_of']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, domiciled_of: e.target.value })}
+				/>
 			</div>
 			<div className='d-flex input_contained'>
 				<div component='fieldset' className='mt-4 fieldset'>
@@ -66,12 +90,14 @@ function SecondStep({ setStep }) {
 					<RadioGroup
 						aria-label='radio'
 						name='radio'
-						value={value}
-						onChange={handleChange}
 						className='flex-row'
+						value={literaryWorksData['authorship_anonymous']}
+						onChange={(e) =>
+							setLiteraryWorksData({ ...literaryWorksData, authorship_anonymous: e.target.value })
+						}
 					>
-						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-						<FormControlLabel value='no' control={<Radio />} label='No' />
+						<FormControlLabel value='1' control={<Radio />} label='Yes' />
+						<FormControlLabel value='0' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 				<div component='fieldset' className='mt-4 fieldset'>
@@ -79,12 +105,14 @@ function SecondStep({ setStep }) {
 					<RadioGroup
 						aria-label='radio'
 						name='radio'
-						value={value}
-						onChange={handleChange}
 						className='flex-row'
+						value={literaryWorksData['authorship_pseudonymous']}
+						onChange={(e) =>
+							setLiteraryWorksData({ ...literaryWorksData, authorship_pseudonymous: e.target.value })
+						}
 					>
-						<FormControlLabel value='yes' control={<Radio />} label='Yes' />
-						<FormControlLabel value='no' control={<Radio />} label='No' />
+						<FormControlLabel value='1' control={<Radio />} label='Yes' />
+						<FormControlLabel value='0' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>
@@ -95,6 +123,10 @@ function SecondStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={literaryWorksData['nature_of_authorship']}
+					onChange={(e) =>
+						setLiteraryWorksData({ ...literaryWorksData, nature_of_authorship: e.target.value })
+					}
 				/>
 			</div>
 			<div className='d-flex flex-column mt-2 m-0 p-0'>
@@ -113,7 +145,10 @@ function SecondStep({ setStep }) {
 			</div>
 			<Model show={continueSheet} onHide={() => setContinueSheet(false)} />
 
-			<Button onClick={() => setStep(1)} variant='contained' color='secondary'>
+			<Button onClick={() => {
+				console.log(literaryWorksData)
+				setStep(1)
+			}} variant='contained' color='secondary'>
 				Previous
 			</Button>
 			<Button onClick={() => setStep(3)} variant='contained' color='primary'>

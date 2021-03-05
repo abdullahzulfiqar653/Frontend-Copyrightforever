@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormOne.js'
 
-function FirstStep({ setStep}) {
+function FirstStep({ setStep }) {
+	const { performingArtData, setPerformingArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3> About Your Work</h3>
@@ -11,6 +13,8 @@ function FirstStep({ setStep}) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={performingArtData['title_of_work']}
+					onChange={(e) => setPerformingArtData({ ...performingArtData, title_of_work: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -19,6 +23,8 @@ function FirstStep({ setStep}) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={performingArtData['prior_title']}
+					onChange={(e) => setPerformingArtData({ ...performingArtData, prior_title: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -27,10 +33,15 @@ function FirstStep({ setStep}) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={performingArtData['nature_of_work']}
+					onChange={(e) => setPerformingArtData({ ...performingArtData, nature_of_work: e.target.value })}
 				/>
 			</div>
 			<div>
-				<Button onClick={() => setStep(2)} variant='contained' color='primary'>
+				<Button onClick={() => {
+					console.log(performingArtData)
+					setStep(2)
+				}} variant='contained' color='primary'>
 					Next
 				</Button>
 				

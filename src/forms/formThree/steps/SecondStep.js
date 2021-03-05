@@ -13,11 +13,11 @@ function SecondStep({ setStep }) {
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
 
 	const [continueSheet, setContinueSheet] = React.useState(false);
-	const [value, setValue] = React.useState('female');
+	// const [value, setValue] = React.useState('female');
 
-	const handleChange = (event) => {
-		setValue(event.target.value);
-	};
+	// const handleChange = (event) => {
+	// 	setValue(event.target.value);
+	// };
 
 	return (
 		<div>
@@ -62,8 +62,8 @@ function SecondStep({ setStep }) {
 							setVirtualArtData({ ...virtualArtData, work_for_hire: e.target.value })
 						}
 					>
-						<FormControlLabel value='true' control={<Radio />} label='Yes' />
-						<FormControlLabel value='false' control={<Radio />} label='No' />
+						<FormControlLabel value='1' control={<Radio />} label='Yes' />
+						<FormControlLabel value='0' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>
@@ -98,8 +98,8 @@ function SecondStep({ setStep }) {
 							setVirtualArtData({ ...virtualArtData, authorship_anonymous: e.target.value })
 						}
 					>
-						<FormControlLabel value='true' control={<Radio />} label='Yes' />
-						<FormControlLabel value='false' control={<Radio />} label='No' />
+						<FormControlLabel value='1' control={<Radio />} label='Yes' />
+						<FormControlLabel value='0' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 				<div component='fieldset' className='mt-4 fieldset'>
@@ -113,8 +113,8 @@ function SecondStep({ setStep }) {
 							setVirtualArtData({ ...virtualArtData, authorship_pseudonymous: e.target.value })
 						}
 					>
-						<FormControlLabel value='true' control={<Radio />} label='Yes' />
-						<FormControlLabel value='false' control={<Radio />} label='No' />
+						<FormControlLabel value='1' control={<Radio />} label='Yes' />
+						<FormControlLabel value='0' control={<Radio />} label='No' />
 					</RadioGroup>
 				</div>
 			</div>

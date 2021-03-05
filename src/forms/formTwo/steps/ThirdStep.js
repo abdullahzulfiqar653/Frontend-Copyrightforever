@@ -1,8 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, TextField, Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
 import FormLabel from '@material-ui/core/FormLabel';
+import {multiStepContext} from '../FormTwo.js'
 
 function ThirdStep({ setStep }) {
+	const { literaryWorksData, setLiteraryWorksData } = useContext(multiStepContext);
+	const [date, setDatee] = useState({
+		day: '',
+		month: '',
+		year: ''
+	});
+	const onChange = (e) => {
+		setDatee({ ...date, [e.target.name]: e.target.value });
+		console.log(date)
+	};
 	return (
 		<div>
 			<h3>Year of Authorship</h3>
@@ -12,6 +23,10 @@ function ThirdStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={literaryWorksData['year_of_authorship']}
+					onChange={(e) =>
+						setLiteraryWorksData({ ...literaryWorksData, year_of_authorship: e.target.value })
+					}
 				/>
 			</div>
 			<FormLabel className='mt-3' style={{ lineHeight: '1.6' }} component='legend'>
@@ -25,6 +40,9 @@ function ThirdStep({ setStep }) {
 						labelId='demo-simple-select-outlined-label'
 						id='demo-simple-select-outlined'
 						label='Age'
+						value={date['month']}
+						name='month'
+						onChange={(e) => onChange(e)}
 					>
 						<MenuItem value=''>
 							<em>None</em>
@@ -50,7 +68,9 @@ function ThirdStep({ setStep }) {
 						labelId='demo-simple-select-outlined-label'
 						id='demo-simple-select-outlined'
 						label='Age'
-					>
+						value={date['day']}
+						name='day'
+						onChange={(e) => onChange(e)}>
 						<MenuItem value=''>
 							<em>None</em>
 						</MenuItem>
@@ -93,13 +113,33 @@ function ThirdStep({ setStep }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={date['year']}
+					minLength="4"
+					maxlength="4"
+					name='year'
+					onChange={(e) => onChange(e)}
 				/>
-				<TextField label='Nation' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label='Nation'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					value={literaryWorksData['nation']}
+					onChange={(e) =>
+						setLiteraryWorksData({ ...literaryWorksData, nation: e.target.value })
+					}
+				/>
 			</div>
 			<Button onClick={() => setStep(2)} variant='contained' color='secondary'>
 				Previous
 			</Button>
-			<Button onClick={() => setStep(4)} variant='contained' color='primary'>
+			<Button onClick={() => {
+				const { day, month, year } = date;
+				let a = year + ' / ' + month + ' / ' + day
+				setLiteraryWorksData({ ...literaryWorksData, date_of_authorship: String(a) })
+				setStep(4)
+				console.log(literaryWorksData)
+			}} variant='contained' color='primary'>
 				Next
 			</Button>
 		</div>

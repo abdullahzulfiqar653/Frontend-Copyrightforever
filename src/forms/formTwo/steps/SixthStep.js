@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormTwo.js'
 
 function SixthStep({ setStep }) {
+	const { literaryWorksData, setLiteraryWorksData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3>Derivative Work or Compilation Work</h3>
@@ -12,6 +14,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={literaryWorksData['identify_preexisting_work']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, identify_preexisting_work: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -20,6 +24,8 @@ function SixthStep({ setStep }) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={literaryWorksData['describe_preexisting_work']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, describe_preexisting_work: e.target.value })}
 				/>
 			</div>
 

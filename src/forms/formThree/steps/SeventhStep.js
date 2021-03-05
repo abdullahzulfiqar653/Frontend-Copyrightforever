@@ -43,22 +43,7 @@ function SeventhStep({ setStep }) {
 					type='file'
 					name='file'
 					onChange={(e) => {
-						let file = e.target.files[0]
-						let data = new FormData()
-						console.log(e.target.files, "files")
-						// var FormData: new (form?: HTMLFormElement) => FormData interface FormData
-						console.log(file, "this is file")
-						data.append('file', file)
-						
-						console.log(data.get('file'), "aaaaaaaaaaaa")
-
-						setVirtualArtData({ ...virtualArtData, file: data });
-						// console.log(e.target.files[0])
-						// const fileReader = new FileReader();
-						// fileReader.readAsDataURL(e.target.files[0]);
-						// fileReader.onload = (e) => {
-						// 	setVirtualArtData({ ...virtualArtData, file: e.target.result });
-						// };
+						setVirtualArtData({ ...virtualArtData, file: e.target.files[0] });
 					}}
 					ref={hiddenInput}
 					className='d-none'

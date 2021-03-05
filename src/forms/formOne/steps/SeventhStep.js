@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from '@material-ui/core';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { multiStepContext } from '../FormOne.js';
 
 function SeventhStep({ setStep }) {
+	const hiddenInput = React.useRef(null);
+	const { performingArtData, setPerformingArtData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>
@@ -36,7 +40,25 @@ function SeventhStep({ setStep }) {
 			</ul>
 
 			<h5>
-				<strong className='strong'>Upload file here:</strong> <input type='file' />
+				<strong className='strong'>Upload file here:</strong>
+				<input
+					type='file'
+					name='file'
+					onChange={(e) => {
+						setPerformingArtData({ ...performingArtData, file: e.target.files[0] });
+					}}
+					ref={hiddenInput}
+					className='d-none'
+				/>
+				<Button
+					className='m-0 ml-3 '
+					variant='contained'
+					color='default'
+					startIcon={<CloudUploadIcon />}
+					onClick={() => hiddenInput.current.click()}
+				>
+					Upload
+				</Button>
 			</h5>
 			<Button onClick={() => setStep(6)} variant='contained' color='secondary'>
 				Previous

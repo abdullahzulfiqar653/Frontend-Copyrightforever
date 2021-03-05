@@ -1,10 +1,19 @@
 import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Button } from '@material-ui/core';
-
+import { Redirect, Link } from 'react-router-dom';
 import { multiStepContext } from '../FormThree.js';
+import { useHistory } from 'react-router-dom';
+import Loader from "react-loader-spinner"
+
 function NinthStep({ setStep }) {
 	const { submitData } = useContext(multiStepContext);
 	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
+	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+	const { error } = useContext(multiStepContext);
+	const { loading } = useContext(multiStepContext);
+	const history = useHistory()
+	
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>
@@ -32,9 +41,28 @@ function NinthStep({ setStep }) {
 			<Button onClick={() => setStep(8)} variant='contained' color='secondary'>
 				Previous
 			</Button>
-			<Button variant='contained' color='primary' onClick={submitData}>
+			<Button variant='contained' color='primary' onClick={isAuthenticated ? submitData : history.push('/login')}>
+				{loading ? (
+						<Loader
+							style={{ display: 'inline-block' }}
+							type="ThreeDots"
+							color='white'
+							height={5}
+							width={30}
+						/>
+							) : ('')}
 				Submit
 			</Button>
+			{isAuthenticated && error != null && error != undefined
+				? Object.keys(error.response.data).map((key, index) => (
+						<ul key={index} style={{ paddingLeft: '20px' }}>
+							<li style={{ color: 'red', fontSize: '22px', listStyleType:"square" }}>
+							<span><strong>{key.toUpperCase()}</strong> : </span>
+								<span><strong>{error.response.data[key]}</strong></span>
+							</li>
+						</ul>
+					))
+			: null}
 		</div>
 	);
 }

@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
-
+import React, { useContext } from 'react';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormFour.js'
 
-function FirstStep({ setStep}) {
+function FirstStep({ setStep }) {
+	const { soundRecordingData, setSoundRecordingData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h3> About Your Work</h3>
@@ -12,6 +13,8 @@ function FirstStep({ setStep}) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={soundRecordingData['title_of_work']}
+					onChange={(e) => setSoundRecordingData({ ...soundRecordingData, title_of_work: e.target.value })}
 				/>
 			</div>
 			<div>
@@ -20,6 +23,8 @@ function FirstStep({ setStep}) {
 					margin='normal'
 					variant='outlined'
 					color='secondary'
+					value={soundRecordingData['prior_title']}
+					onChange={(e) => setSoundRecordingData({ ...soundRecordingData, prior_title: e.target.value })}
 				/>
 			</div>
 

@@ -6,7 +6,7 @@ import { multiStepContext } from '../FormTwo.js';
 
 function EighthStep({ setStep, setModal, modal }) {
 	const hiddenInput = React.useRef(null);
-	const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
+	const { literaryWorksData, setLiteraryWorksData } = useContext(multiStepContext);
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>
@@ -41,10 +41,12 @@ function EighthStep({ setStep, setModal, modal }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={literaryWorksData['employer_name']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, employer_name: e.target.value })}
 				/>
 				<TextField
 					id='date'
-					label='Date'
+					label='Date of birth'
 					type='date'
 					defaultValue='2017-05-24'
 					margin='normal'
@@ -53,18 +55,65 @@ function EighthStep({ setStep, setModal, modal }) {
 					InputLabelProps={{
 						shrink: true,
 					}}
+					value={literaryWorksData['employer_date_of_birth']}
+					onChange={(e) =>
+						setLiteraryWorksData({ ...literaryWorksData, employer_date_of_birth: e.target.value })
+					}
+				/>
+				<TextField
+					id='date'
+					label='Date of Hiring'
+					type='date'
+					defaultValue='2017-05-24'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					InputLabelProps={{
+						shrink: true,
+					}}
+					value={literaryWorksData['date_of_hiring']}
+					onChange={(e) =>
+						setLiteraryWorksData({ ...literaryWorksData, date_of_hiring: e.target.value })
+					}
+				/>
+				<TextField
+					id='date'
+					label='Date of Employing'
+					type='date'
+					defaultValue='2017-05-24'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					InputLabelProps={{
+						shrink: true,
+					}}
+					value={literaryWorksData['date_of_employing_copyright']}
+					onChange={(e) =>
+						setLiteraryWorksData({ ...literaryWorksData, date_of_employing_copyright: e.target.value })
+					}
 				/>
 			</div>
-			<TextField label=' Address' margin='normal' variant='outlined' color='secondary' />
+			<TextField
+					label=' Address'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					value={literaryWorksData['employer_address']}
+					onChange={(e) =>
+						setLiteraryWorksData({ ...literaryWorksData, employer_address: e.target.value })
+					}
+				/>
 			<div className='d-flex input_contained'>
-				<TextField
+					<TextField
 					label='City'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={literaryWorksData['city']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, city: e.target.value })}
 				/>
-				<FormControl className='mr-3' variant='outlined' margin='normal'>
+				{/* <FormControl className='mr-3' variant='outlined' margin='normal'>
 					<InputLabel id='demo-simple-select-outlined-label'>State</InputLabel>
 					<Select
 						labelId='demo-simple-select-outlined-label'
@@ -123,14 +172,23 @@ function EighthStep({ setStep, setModal, modal }) {
 						<MenuItem value='Wisconsin'>Wisconsin</MenuItem>
 						<MenuItem value='Wyoming'>Wyoming</MenuItem>
 					</Select>
-				</FormControl>
-				<TextField label='Zip Code' margin='normal' variant='outlined' color='secondary' />
+				</FormControl> */}
+				<TextField
+					label='Zip Code'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					value={literaryWorksData['zipCode']}
+					onChange={(e) => setLiteraryWorksData({ ...literaryWorksData, zipCode: e.target.value })}
+				/>
 			</div>
 			<h5 className='my-3 d-flex align-items-center'>
 				<strong className='strong'>Signature:</strong>{' '}
 				<input
 					type='file'
-					onChange={(e) => setVirtualArtData({ ...virtualArtData, file: e.target.files })}
+					onChange={(e) => {
+						setLiteraryWorksData({ ...literaryWorksData, sign_image: e.target.files[0] });
+					}}
 					ref={hiddenInput}
 					className='d-none'
 				/>

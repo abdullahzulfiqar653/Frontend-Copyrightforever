@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Button, TextField } from '@material-ui/core';
+import { multiStepContext } from '../FormOne.js'
 
 function TextSection({ text, textField, setModalShow }) {
+	const { performingArtData, setPerformingArtData } = useContext(multiStepContext);
 	return (
 		<>
 			<Row>
@@ -31,18 +33,25 @@ function TextSection({ text, textField, setModalShow }) {
 								variant='outlined'
 								color='secondary'
 								className='mr-3'
+								value={performingArtData['name']}
+								onChange={(e) => setPerformingArtData({ ...performingArtData, name: e.target.value })}
 							/>
 							<TextField
 								label='Your Email Address:'
 								margin='normal'
 								variant='outlined'
 								color='secondary'
+								value={performingArtData['email_address']}
+								onChange={(e) =>
+									setPerformingArtData({ ...performingArtData, email_address: e.target.value })
+								}
 							/>
 						</div>
 						{textField}
 					</div>
 					<Button
 						onClick={() => {
+							console.log(performingArtData)
 							text.setStart(true);
 							text.setModalShow(true);
 						}}

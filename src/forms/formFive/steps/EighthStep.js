@@ -1,16 +1,18 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Button, TextField, InputLabel, FormControl, Select, MenuItem } from '@material-ui/core';
 import Model from '../../../components/Model';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { multiStepContext } from '../FormFive.js'
 
-function EighthStep({ setStep, modal, setModal }) {
+function EighthStep({ setStep }) {
+	const { serialWorkData, setSerialWorkData } = useContext(multiStepContext);
 	const hiddenInput = React.useRef(null);
 	return (
 		<div>
 			<h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>
 			<h3 className='d-flex justify-content-between'>
 				Appointment of CopyrightForever as Agency{' '}
-				{/* <Button onClick={() => setModal(true)} variant='contained' color='primary'>
+				{/* <Button onClick={() => setModal(true)} variant='contained' color='secondary'>
 					POA
 				</Button> */}
 			</h3>
@@ -39,10 +41,12 @@ function EighthStep({ setStep, modal, setModal }) {
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={serialWorkData['employer_name']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, employer_name: e.target.value })}
 				/>
 				<TextField
 					id='date'
-					label='Date'
+					label='Date of birth'
 					type='date'
 					defaultValue='2017-05-24'
 					margin='normal'
@@ -51,29 +55,78 @@ function EighthStep({ setStep, modal, setModal }) {
 					InputLabelProps={{
 						shrink: true,
 					}}
+					value={serialWorkData['employer_date_of_birth']}
+					onChange={(e) =>
+						setSerialWorkData({ ...serialWorkData, employer_date_of_birth: e.target.value })
+					}
+				/>
+				<TextField
+					id='date'
+					label='Date of Hiring'
+					type='date'
+					defaultValue='2017-05-24'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					InputLabelProps={{
+						shrink: true,
+					}}
+					value={serialWorkData['date_of_hiring']}
+					onChange={(e) =>
+						setSerialWorkData({ ...serialWorkData, date_of_hiring: e.target.value })
+					}
+				/>
+				<TextField
+					id='date'
+					label='Date of Employing'
+					type='date'
+					defaultValue='2017-05-24'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					InputLabelProps={{
+						shrink: true,
+					}}
+					value={serialWorkData['date_of_employing_copyright']}
+					onChange={(e) =>
+						setSerialWorkData({ ...serialWorkData, date_of_employing_copyright: e.target.value })
+					}
 				/>
 			</div>
 			<div>
-				<TextField label=' Address' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label=' Address'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					value={serialWorkData['employer_address']}
+					onChange={(e) =>
+						setSerialWorkData({ ...serialWorkData, employer_address: e.target.value })
+					}
+				/>
 			</div>
 			<div className='d-flex input_contained'>
-				<TextField
+<TextField
 					label='City'
 					margin='normal'
 					variant='outlined'
 					color='secondary'
 					className='mr-3'
+					value={serialWorkData['city']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, city: e.target.value })}
 				/>
 				<FormControl className='mr-3' variant='outlined' margin='normal'>
-					<InputLabel id='demo-simple-select-outlined-label'>State</InputLabel>
+					<InputLabel htmlFor='state'>State</InputLabel>
 					<Select
-						labelId='demo-simple-select-outlined-label'
-						id='demo-simple-select-outlined'
+						// labelId='demo-simple-select-outlined-label'
+						// id='demo-simple-select-outlined'
 						label='Age'
+						value={serialWorkData['state']}
+						onChange={(e) =>
+							setSerialWorkData({ ...serialWorkData, state: e.target.value })
+						}
 					>
-						<MenuItem value=''>
-							<em>None</em>
-						</MenuItem>
+						<MenuItem value=''>State</MenuItem>
 						<MenuItem value='Alabama'>Alabama</MenuItem>
 						<MenuItem value='Alaska'>Alaska</MenuItem>
 						<MenuItem value='Arizona'>Arizona</MenuItem>
@@ -124,11 +177,25 @@ function EighthStep({ setStep, modal, setModal }) {
 						<MenuItem value='Wyoming'>Wyoming</MenuItem>
 					</Select>
 				</FormControl>
-				<TextField label='Zip Code' margin='normal' variant='outlined' color='secondary' />
+				<TextField
+					label='Zip Code'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					value={serialWorkData['zipCode']}
+					onChange={(e) => setSerialWorkData({ ...serialWorkData, zipCode: e.target.value })}
+				/>
 			</div>
 			<h5 className='my-3 d-flex align-items-center'>
 				<strong className='strong'>Signature:</strong>{' '}
-				<input type='file' ref={hiddenInput} className='d-none' />
+				<input
+					type='file'
+					onChange={(e) => {
+						setSerialWorkData({ ...serialWorkData, sign_image: e.target.files[0] });
+					}}
+					ref={hiddenInput}
+					className='d-none'
+				/>
 				<Button
 					className='m-0 ml-3 '
 					variant='contained'

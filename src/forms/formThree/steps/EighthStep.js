@@ -60,6 +60,38 @@ function EighthStep({ setStep, setModal, modal }) {
 						setVirtualArtData({ ...virtualArtData, employer_date_of_birth: e.target.value })
 					}
 				/>
+				<TextField
+					id='date'
+					label='Date of Hiring'
+					type='date'
+					defaultValue='2017-05-24'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					InputLabelProps={{
+						shrink: true,
+					}}
+					value={virtualArtData['date_of_hiring']}
+					onChange={(e) =>
+						setVirtualArtData({ ...virtualArtData, date_of_hiring: e.target.value })
+					}
+				/>
+				<TextField
+					id='date'
+					label='Date of Employing'
+					type='date'
+					defaultValue='2017-05-24'
+					margin='normal'
+					variant='outlined'
+					color='secondary'
+					InputLabelProps={{
+						shrink: true,
+					}}
+					value={virtualArtData['date_of_employing_copyright']}
+					onChange={(e) =>
+						setVirtualArtData({ ...virtualArtData, date_of_employing_copyright: e.target.value })
+					}
+				/>
 			</div>
 			<div>
 				<TextField
@@ -83,7 +115,7 @@ function EighthStep({ setStep, setModal, modal }) {
 					value={virtualArtData['city']}
 					onChange={(e) => setVirtualArtData({ ...virtualArtData, city: e.target.value })}
 				/>
-				<FormControl className='mr-3' variant='outlined' margin='normal'>
+				{/* <FormControl className='mr-3' variant='outlined' margin='normal'>
 					<InputLabel id='demo-simple-select-outlined-label'>State</InputLabel>
 					<Select
 						labelId='demo-simple-select-outlined-label'
@@ -142,7 +174,7 @@ function EighthStep({ setStep, setModal, modal }) {
 						<MenuItem value='Wisconsin'>Wisconsin</MenuItem>
 						<MenuItem value='Wyoming'>Wyoming</MenuItem>
 					</Select>
-				</FormControl>
+				</FormControl> */}
 				<TextField
 					label='Zip Code'
 					margin='normal'
@@ -158,13 +190,7 @@ function EighthStep({ setStep, setModal, modal }) {
 				<input
 					type='file'
 					onChange={(e) => {
-						// let file = e.target.files[0]
-						// let data = new FormData()
-						const fileReader = new FileReader();
-						fileReader.readAsDataURL(e.target.files[0]);
-						fileReader.onload = (e) => {
-							setVirtualArtData({ ...virtualArtData, sign_image: e.target.result });
-						};
+						setVirtualArtData({ ...virtualArtData, sign_image: e.target.files[0] });
 					}}
 					ref={hiddenInput}
 					className='d-none'
