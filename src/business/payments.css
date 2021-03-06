@@ -1,0 +1,14 @@
+.app {
+  /* width: 100; */
+  height: 100vh;
+  background-color: gray;
+  place-items: center;
+}
+.wrapper {
+  /* background-color: lightgray; */
+  padding: 100px;
+  /* padding-left: 500; */
+  padding-right: 2000;
+  /* padding-block: 2000; */
+  /* border-radius: 500px; */
+}

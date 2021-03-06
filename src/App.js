@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 
+import Payments from './business/payments';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomeScreen from './screens/HomeScreen';
@@ -40,6 +41,7 @@ const App = () => {
 							<Route path='/about-us' component={AboutUs} />
 							<Route path='/copyrightcategories' component={CopyrightCategories} />
 							<Route path='/myaccount' component={MyAccount} />
+							<Route path='/payments' component={Payments} />
 						</Switch>
 					</main>
 				<Footer />
