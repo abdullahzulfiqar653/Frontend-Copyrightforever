@@ -2,12 +2,18 @@ import React from 'react';
 import { Tab, Row, Col, Nav } from 'react-bootstrap';
 import AccountDetail from './accountDetail/AccountDetail.js';
 import Transection from './transection/Transection.js';
-import { useSelector } from 'react-redux';
-import PaymentScreen from '../business/Payments';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../actions/auth.js'
+import PaymentScreen from '../business/payments';
+import { useHistory } from "react-router-dom";
+
 
 function MyAccount() {
-  const [show, setShow] = React.useState(false);
+  const dispatch = useDispatch()
+  const history = useHistory();
+  // const [show, setShow] = React.useState(false);
   const state = useSelector((state) => state);
+  const show = state.auth.show;
   const id = state.auth.id;
   const formName = state.auth.formName;
   return (
@@ -32,7 +38,10 @@ function MyAccount() {
               </Nav.Item>
 
               <Nav.Item className='my-2 mx-0'>
-                <Nav.Link className='p-3' eventKey='third'>
+                <Nav.Link className='p-3' eventKey='third' onClick={() => {
+                  history.push("/");
+                  dispatch(logout());
+                }}>
                   {' '}
                   <i className='fas fa-sign-out-alt'></i> Logout
                 </Nav.Link>
@@ -45,7 +54,7 @@ function MyAccount() {
                 <AccountDetail />
               </Tab.Pane>
               <Tab.Pane eventKey='second'>
-                <Transection setShow={setShow} />
+                <Transection/>
               </Tab.Pane>
             </Tab.Content>
           </Col>

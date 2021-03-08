@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CustomizedTables({ setShow }) {
+export default function CustomizedTables() {
   const history = useHistory();
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -48,8 +48,9 @@ export default function CustomizedTables({ setShow }) {
   console.log(user, id, formName);
 
   const clickHandler = (formName, id, date) => {
-    setShow(true);
-    dispatch(savingId(id, formName, date));
+    // setShow(true);
+    const show = true
+    dispatch(savingId(show, id, formName, date));
   };
 
   return (
@@ -87,17 +88,17 @@ export default function CustomizedTables({ setShow }) {
                       className='paid'
                       variant='contained'
                       color='secondary'>
-                      Paid
+                      Form Paid
                     </Button>
                   ) : (
                     <Button
                       className='unPaid'
                       variant='contained'
                       color='secondary'
-                      onClick={() => {
+                        onClick={() => {
                         clickHandler(row.form_name, row.id, row.submitted_at);
                       }}>
-                      Unpaid
+                      Pay here
                     </Button>
                   )}
                 </StyledTableCell>

@@ -29,7 +29,7 @@ function NinthStep({ setStep }) {
               height={50}
               width={50}
             />
-          }></LoadingOverlay>
+          }> Uploading</LoadingOverlay>
       )}
       <div>
         <h4 style={{ color: '#ff0000 ' }}>Almost Done</h4>

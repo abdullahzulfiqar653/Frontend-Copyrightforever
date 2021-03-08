@@ -1,1 +1,1 @@
-export const REQUEST_URL = `http://45eaed0ad6d3.ngrok.io`;
+export const REQUEST_URL = `http://localhost:8000`;

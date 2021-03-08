@@ -178,9 +178,9 @@ export const logout = () => (dispatch) => {
   });
 };
 
-export const savingId = (id, form_name, date) => (dispatch) => {
+export const savingId = (show, id, form_name, date) => (dispatch) => {
   dispatch({
     type: types.SAVING_ID,
-    payload: { id, form_name, date },
+    payload: {show, id, form_name, date },
   });
 };

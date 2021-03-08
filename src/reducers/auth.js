@@ -10,6 +10,7 @@ const initialState = {
   id: null,
   form_name: null,
   date: null,
+  show: false,
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -66,6 +67,7 @@ export default function (state = initialState, action) {
     case types.SAVING_ID:
       return {
         ...state,
+        show: payload.show,
         id: payload.id,
         formName: payload.form_name,
         date: payload.date,
