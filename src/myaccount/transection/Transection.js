@@ -85,14 +85,14 @@ export default function CustomizedTables() {
                 <StyledTableCell align='center'>
                   {row.paid ? (
                     <Button
-                      className='paid'
+                      className='badge rounded-pill bg-success'
                       variant='contained'
                       color='secondary'>
-                      Form Paid
+                      Paid
                     </Button>
                   ) : (
                     <Button
-                      className='unPaid'
+                      className='badge rounded-pill bg-danger'
                       variant='contained'
                       color='secondary'
                         onClick={() => {

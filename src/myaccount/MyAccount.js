@@ -3,7 +3,7 @@ import { Tab, Row, Col, Nav } from 'react-bootstrap';
 import AccountDetail from './accountDetail/AccountDetail.js';
 import Transection from './transection/Transection.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../actions/auth.js'
+import { logout } from '../actions/auth.js';
 import PaymentScreen from '../business/payments';
 import { useHistory } from "react-router-dom";
 
