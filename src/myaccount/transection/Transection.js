@@ -48,7 +48,6 @@ export default function CustomizedTables() {
   console.log(user, id, formName);
 
   const clickHandler = (formName, id, date) => {
-    // setShow(true);
     const show = true
     dispatch(savingId(show, id, formName, date));
   };

@@ -1,9 +1,9 @@
-import * as types from '../actions/types';
+import * as types from "../actions/types";
 
 const initialState = {
-  access: localStorage.getItem('access'),
-  refresh: localStorage.getItem('refresh'),
-  isAuthenticated: null,
+  access: localStorage.getItem("access"),
+  refresh: localStorage.getItem("refresh"),
+  isAuthenticated: false,
   error: null,
   user: null,
   loading: false,
@@ -36,7 +36,7 @@ export default function (state = initialState, action) {
         loading: false,
       };
     case types.LOGIN_SUCCESS:
-      localStorage.setItem('access', payload.access);
+      localStorage.setItem("access", payload.access);
       return {
         ...state,
         isAuthenticated: true,
