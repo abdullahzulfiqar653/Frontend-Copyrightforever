@@ -66,16 +66,15 @@ function FormThree() {
 		domiciled_of: '',
 		authorship_anonymous: '',
 		authorship_pseudonymous: '',
-		nature_of_authorship: {
-			option1: false,
-			option2: false,
-			option3: false,
-			option4: false,
-			option5: false,
-			option6: false,
-			option7: false,
-			option8: false,
-		},
+
+		option1: false,
+		option2: false,
+		option3: false,
+		option4: false,
+		option5: false,
+		option6: false,
+		option7: false,
+		option8: false,
 
 		// section 3
 		year_of_authorship: '',

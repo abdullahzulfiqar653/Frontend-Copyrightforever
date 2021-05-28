@@ -190,10 +190,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option1: e.target.checked,
 										});
 									}}
 									name='option1'
@@ -209,10 +206,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option2: e.target.checked,
 										});
 									}}
 									name='option2'
@@ -228,10 +222,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option3: e.target.checked,
 										});
 									}}
 									name='option3'
@@ -248,10 +239,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option4: e.target.checked,
 										});
 									}}
 									name='option4'
@@ -267,10 +255,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option5: e.target.checked,
 										});
 									}}
 									name='option5'
@@ -286,10 +271,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option6: e.target.checked,
 										});
 									}}
 									name='option6'
@@ -305,10 +287,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option7: e.target.checked,
 										});
 									}}
 									name='option7'
@@ -324,10 +303,7 @@ function SecondStep({ setStep }) {
 									onChange={(e) => {
 										setVirtualArtData({
 											...virtualArtData,
-											nature_of_authorship: {
-												...virtualArtData.nature_of_authorship,
-												[e.target.name]: e.target.checked,
-											},
+											option8: e.target.checked,
 										});
 									}}
 									name='option8'
