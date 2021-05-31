@@ -33,7 +33,6 @@ function FormFive() {
     // form_start_from here
     name: "",
     email_address: "",
-
     //section_1
     title_of_work: "",
     volume: "",
@@ -41,7 +40,6 @@ function FormFive() {
     date_on_copies: "",
     frequency: "",
     prior_title: "",
-
     // section 2
     name_of_author: "",
     year_of_birth: "",
@@ -54,7 +52,9 @@ function FormFive() {
     nature_of_authorship: "",
     // section 3
     year_of_authorship: "",
-    date_of_authorship: "",
+    month: "",
+    day: "",
+    year: "",
     nation: "",
     // section 4
     claimant_name: "",
@@ -80,6 +80,8 @@ function FormFive() {
     date_of_hiring: "",
     employer_address: "",
     date_of_employing_copyright: "",
+    city: "",
+    zipcode: "",
     state: "",
     sign_image: null,
     // section 9
@@ -156,7 +158,9 @@ function FormFive() {
     data.append("nature_of_authorship", serialWorkData.nature_of_authorship);
     // Section_3
     data.append("year_of_authorship", serialWorkData.year_of_authorship);
-    data.append("date_of_authorship", serialWorkData.date_of_authorship);
+    data.append("day", serialWorkData.day);
+    data.append("month", serialWorkData.month);
+    data.append("year", serialWorkData.year);
     data.append("nation", serialWorkData.nation);
     // Section_4
     data.append("claimant_name", serialWorkData.claimant_name);
@@ -206,6 +210,9 @@ function FormFive() {
       "date_of_employing_copyright",
       serialWorkData.date_of_employing_copyright
     );
+    data.append("city", serialWorkData.city);
+    data.append("state", serialWorkData.state);
+    data.append("zipcode", serialWorkData.zipcode);
     data.append("sign_image", serialWorkData.sign_image);
     // Section_9
     data.append("certification_name", serialWorkData.certification_name);
@@ -314,7 +321,7 @@ function FormFive() {
     // eslint-disable-next-line default-case
     switch (step) {
       case 1:
-        return <FirstStep setStep={setStep} />;
+        return <FirstStep setStart={setStart} setStep={setStep} />;
       case 2:
         return <SecondStep setStep={setStep} />;
       case 3:

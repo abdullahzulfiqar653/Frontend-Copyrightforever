@@ -24,8 +24,8 @@ function FormFour() {
   const [start, setStart] = useState(false);
   const [modalShow, setModalShow] = React.useState(false);
   const [error, setError] = useState();
-	const user = useSelector((state) => state.auth.user);
-	const history = useHistory();
+  const user = useSelector((state) => state.auth.user);
+  const history = useHistory();
   let data = new FormData();
 
   const [soundRecordingData, setSoundRecordingData] = useState({
@@ -50,7 +50,9 @@ function FormFour() {
     nature_of_authorship: "",
     // section 3
     year_of_authorship: "",
-    date_of_authorship: "",
+    month: "",
+    day: "",
+    year: "",
     nation: "",
     // section 4
     claimant_name: "",
@@ -76,7 +78,9 @@ function FormFour() {
     date_of_hiring: "",
     employer_address: "",
     date_of_employing_copyright: "",
+    city: "",
     state: "",
+    zipcode: "",
     sign_image: null,
     // section 9
     certification_name: "",
@@ -154,7 +158,9 @@ function FormFour() {
     );
     // Section_3
     data.append("year_of_authorship", soundRecordingData.year_of_authorship);
-    data.append("date_of_authorship", soundRecordingData.date_of_authorship);
+    data.append("month", soundRecordingData.month);
+    data.append("day", soundRecordingData.day);
+    data.append("year", soundRecordingData.year);
     data.append("nation", soundRecordingData.nation);
     // Section_4
     data.append("claimant_name", soundRecordingData.claimant_name);
@@ -207,6 +213,9 @@ function FormFour() {
       "date_of_employing_copyright",
       soundRecordingData.date_of_employing_copyright
     );
+    data.append("city", soundRecordingData.city);
+    data.append("state", soundRecordingData.state);
+    data.append("zipcode", soundRecordingData.zipcode);
     data.append("sign_image", soundRecordingData.sign_image);
     // Section_9
     data.append("certification_name", soundRecordingData.certification_name);
@@ -320,7 +329,7 @@ function FormFour() {
     // eslint-disable-next-line default-case
     switch (step) {
       case 1:
-        return <FirstStep setStep={setStep} />;
+        return <FirstStep setStart={setStart} setStep={setStep} />;
       case 2:
         return <SecondStep setStep={setStep} />;
       case 3:

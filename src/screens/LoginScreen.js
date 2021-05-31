@@ -10,6 +10,7 @@ import Loader from "react-loader-spinner";
 const LoginScreen = ({ login, isLoading, error }) => {
   const state = useSelector((state) => state);
   const isAuthenticated = state.auth.isAuthenticated;
+
   const history = useHistory();
   const [formData, setFormData] = useState({
     email: "",

@@ -3,7 +3,7 @@ import { Button, TextField, FormLabel } from "@material-ui/core";
 
 import { multiStepContext } from "../FormThree.js";
 
-function FirstStep({ setStep }) {
+function FirstStep({ setStep, setStart }) {
   const { virtualArtData, setVirtualArtData } = useContext(multiStepContext);
   return (
     <div>
@@ -70,6 +70,7 @@ function FirstStep({ setStep }) {
         />
         <TextField
           className="mr-3"
+          type="number"
           label="Number"
           margin="normal"
           variant="outlined"
@@ -81,7 +82,7 @@ function FirstStep({ setStep }) {
         />
         <TextField
           id="date"
-          required
+          //   required
           className="mr-3"
           label="Issue Date"
           type="date"
@@ -99,6 +100,7 @@ function FirstStep({ setStep }) {
         />
         <TextField
           label=" Pages"
+          type="number"
           margin="normal"
           variant="outlined"
           color="secondary"
@@ -109,6 +111,15 @@ function FirstStep({ setStep }) {
         />
       </div>
       <div>
+        <Button
+          onClick={() => {
+            setStart(false);
+          }}
+          variant="contained"
+          color="primary"
+        >
+          Previous
+        </Button>
         <Button
           onClick={() => {
             setStep(2);
