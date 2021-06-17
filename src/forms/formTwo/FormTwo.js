@@ -64,7 +64,9 @@ function FormTwo() {
     nature_of_authorship: "",
     // section 3
     year_of_authorship: "",
-    date_of_authorship: "",
+    day: "",
+    month: "",
+    year: "",
     nation: "",
     // section 4
     claimant_name: "",
@@ -171,7 +173,9 @@ function FormTwo() {
     data.append("nature_of_authorship", literaryWorksData.nature_of_authorship);
     // Section_3
     data.append("year_of_authorship", literaryWorksData.year_of_authorship);
-    data.append("date_of_authorship", literaryWorksData.date_of_authorship);
+    data.append("day", literaryWorksData.day);
+    data.append("month", literaryWorksData.month);
+    data.append("year", literaryWorksData.year);
     data.append("nation", literaryWorksData.nation);
     // Section_4
     data.append("claimant_name", literaryWorksData.claimant_name);
@@ -332,7 +336,7 @@ function FormTwo() {
     // eslint-disable-next-line default-case
     switch (step) {
       case 1:
-        return <FirstStep setStep={setStep} />;
+        return <FirstStep setStart={setStart} setStep={setStep} />;
       case 2:
         return <SecondStep setStep={setStep} />;
       case 3:

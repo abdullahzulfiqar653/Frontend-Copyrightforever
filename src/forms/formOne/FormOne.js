@@ -60,7 +60,9 @@ function FormOne() {
     nature_of_authorship: "",
     // section 3
     year_of_authorship: "",
-    date_of_authorship: "",
+    day: "",
+    month: "",
+    year: "",
     nation: "",
     // section 4
     claimant_name: "",
@@ -86,6 +88,8 @@ function FormOne() {
     date_of_hiring: "",
     employer_address: "",
     date_of_employing_copyright: "",
+    city: "",
+    zipcode: "",
     state: "",
     sign_image: null,
     // section 9
@@ -159,7 +163,9 @@ function FormOne() {
     data.append("nature_of_authorship", performingArtData.nature_of_authorship);
     // Section_3
     data.append("year_of_authorship", performingArtData.year_of_authorship);
-    data.append("date_of_authorship", performingArtData.date_of_authorship);
+    data.append("day", performingArtData.day);
+    data.append("month", performingArtData.month);
+    data.append("year", performingArtData.year);
     data.append("nation", performingArtData.nation);
     // Section_4
     data.append("claimant_name", performingArtData.claimant_name);
@@ -202,6 +208,9 @@ function FormOne() {
     data.append("file", performingArtData.file);
     // Section_8
     data.append("employer_name", performingArtData.employer_name);
+    data.append("city", performingArtData.city);
+    data.append("state", performingArtData.state);
+    data.append("zipcode", performingArtData.zipcode);
     data.append(
       "employer_date_of_birth",
       performingArtData.employer_date_of_birth
@@ -319,7 +328,7 @@ function FormOne() {
     // eslint-disable-next-line default-case
     switch (step) {
       case 1:
-        return <FirstStep setStep={setStep} />;
+        return <FirstStep setStart={setStart} setStep={setStep} />;
       case 2:
         return <SecondStep setStep={setStep} />;
       case 3:
