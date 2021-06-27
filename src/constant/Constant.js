@@ -1,1 +1,1 @@
-export const REQUEST_URL = `http://localhost:8000`;
+export const REQUEST_URL = `http://copyright.paradisecompetitions.be`;

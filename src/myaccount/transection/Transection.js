@@ -45,7 +45,6 @@ export default function CustomizedTables() {
   const user = state.auth.user;
   const id = state.auth.id;
   const formName = state.auth.formName;
-  console.log(user, id, formName);
 
   const clickHandler = (formName, id, date) => {
     const show = true

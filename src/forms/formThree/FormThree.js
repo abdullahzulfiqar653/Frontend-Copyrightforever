@@ -417,42 +417,42 @@ function FormThree() {
                 <div class="swiper-slide">
                   <img
                     className="img-fluid"
-                    src="/images/va/VA1.jpg"
+                    src="/images/va/VA1.jpeg"
                     alt="pic1"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                     className="img-fluid"
-                    src="/images/va/VA2.jpg"
+                    src="/images/va/VA2.jpeg"
                     alt="pic2"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                     className="img-fluid"
-                    src="/images/va/VA3.jpg"
+                    src="/images/va/VA3.jpeg"
                     alt="pic3"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                     className="img-fluid"
-                    src="/images/va/VA4.jpg"
+                    src="/images/va/VA4.jpeg"
                     alt="pic4"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                     className="img-fluid"
-                    src="/images/va/VA5.jpg"
+                    src="/images/va/VA5.jpeg"
                     alt="pic5"
                   />
                 </div>
                 <div class="swiper-slide">
                   <img
                     className="img-fluid"
-                    src="/images/va/VA6.jpg"
+                    src="/images/va/VA6.jpeg"
                     alt="pic6"
                   />
                 </div>

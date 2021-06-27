@@ -353,13 +353,13 @@ function FormFive() {
       <Container className="form_cont" id="serial_work">
         <Row className="img_cont">
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/SE/SE1.jpg" alt="pic1" />
+            <img className="img-fluid" src="/images/SE/SE1.jpeg" alt="pic1" />
           </Col>
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/SE/SE2.jpg" alt="pic2" />
+            <img className="img-fluid" src="/images/SE/SE2.jpeg" alt="pic2" />
           </Col>
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/SE/SE3.jpg" alt="pic3" />
+            <img className="img-fluid" src="/images/SE/SE3.jpeg" alt="pic3" />
           </Col>
         </Row>
 

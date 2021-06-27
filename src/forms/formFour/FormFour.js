@@ -367,13 +367,13 @@ function FormFour() {
       <Container className="form_cont" id="sound_recording">
         <Row className="img_cont">
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/SR/SR1.jpg" alt="pic1" />
+            <img className="img-fluid" src="/images/SR/SR1.jpeg" alt="pic1" />
           </Col>
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/SR/SR2.jpg" alt="pic2" />
+            <img className="img-fluid" src="/images/SR/SR2.jpeg" alt="pic2" />
           </Col>
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/SR/SR3.jpg" alt="pic3" />
+            <img className="img-fluid" src="/images/SR/SR3.jpeg" alt="pic3" />
           </Col>
         </Row>
         {start ? (

@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Header = ({ isAuthenticated }) => {
-  console.log('is Authenticated:', isAuthenticated);
   return (
     <header className='bg-dark'>
       <Container className='main-navbar'>

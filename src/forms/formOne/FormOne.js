@@ -366,13 +366,13 @@ function FormOne() {
       <Container className="form_cont" id="performing_art">
         <Row className="img_cont">
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/tx/TX1.jpg" alt="pic1" />
+            <img className="img-fluid" src="/images/PA/PA1.jpeg" alt="pic1" />
           </Col>
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/tx/TX2.jpg" alt="pic2" />
+            <img className="img-fluid" src="/images/PA/PA2.jpeg" alt="pic2" />
           </Col>
           <Col className="p-0" sm={12} md={6} xl={4}>
-            <img className="img-fluid" src="/images/tx/TX3.jpg" alt="pic3" />
+            <img className="img-fluid" src="/images/PA/PA3.jpeg" alt="pic3" />
           </Col>
         </Row>
         {start ? (

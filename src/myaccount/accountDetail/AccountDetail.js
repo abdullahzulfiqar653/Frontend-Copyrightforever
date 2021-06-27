@@ -12,7 +12,6 @@ const AccountDetail = () => {
 	useEffect(() => {
 		dispatch(load_user());
 	}, [dispatch]);
-	console.log(user)
 	const onChange = (e) => {
 		setUserProfile({ ...user.profile, [e.target.name]: e.target.value });
 	};
@@ -55,7 +54,7 @@ const AccountDetail = () => {
 				/>
 			</div>
 			<form onSubmit={(e) => onSubmit(e)}>
-				<TextField
+				{/* <TextField
 					name='phone'
 					label='Phone Number'
 					margin='normal'
@@ -116,7 +115,7 @@ const AccountDetail = () => {
 						''
 					)}
 					Submit
-				</Button>
+				</Button> */}
 			</form>
 		</section>
 	);

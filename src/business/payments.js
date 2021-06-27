@@ -36,7 +36,7 @@ function PaymentScreen() {
       purchase_units: [
         {
           amount: {
-            value: '11',
+            value: '134',
           },
         },
       ],
