@@ -152,7 +152,6 @@ function FormThree() {
   });
   const submitData = async () => {
     setLoading(true);
-    console.log(virtualArtData);
     // data.append('form_name', virtualArtData.form_name)
     data.append("new_form", true);
     // form_start_from here
@@ -336,7 +335,6 @@ function FormThree() {
         data,
         config
       );
-      console.log(res, "response");
       if (res.data.id && res.data.new_form) {
         setLoading(false);
         // dispatch(savingId(res.data.id, res.data.form_name));
@@ -348,7 +346,6 @@ function FormThree() {
         }, 700);
       }
     } catch (error) {
-      console.log(error, "error");
       setLoading(false);
       if (error.response.data) {
         setError(error);

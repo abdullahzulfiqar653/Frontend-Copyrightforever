@@ -51,7 +51,6 @@ function TextSection({ text, textField, setModalShow }) {
 					</div>
 					<Button
 						onClick={() => {
-							console.log(virtualArtData);
 							text.setStart(true);
 							text.setModalShow(true);
 						}}

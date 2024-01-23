@@ -32,7 +32,6 @@ const App = () => {
   //     const decodeToken = jwt_decode(token);
   //     const expiresIn = new Date(decodeToken.exp * 1000);
   //     if (new Date() > expiresIn) {
-  //       console.log(new Date() > expiresIn);
   //       dispatch(logout())
   //       return null;
   //     }
@@ -47,15 +46,12 @@ const App = () => {
         
       const decodeToken = jwt_decode(token);
       const expiresIn = new Date(decodeToken.exp * 1000);
-      console.log(new Date() > expiresIn);
       if (new Date() > expiresIn) {
-        console.log(new Date() > expiresIn);
         dispatch(logout())
         return null;
       }
     }
       else {
-        console.log("in else conditions")
       dispatch(logout())
     }
   }, 1000)

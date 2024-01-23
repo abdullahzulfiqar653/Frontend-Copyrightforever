@@ -111,7 +111,6 @@ function FifthStep({ setStep }) {
       </Button>
       <Button
         onClick={() => {
-          console.log(valueTake);
           switch (String(valueTake)) {
             case "first_published_edition_of_work":
               setSoundRecordingData({
@@ -120,7 +119,6 @@ function FifthStep({ setStep }) {
                 first_application_by_the_author: "0",
                 changed_version_of_the_work: "0",
               });
-              console.log(soundRecordingData, "1");
               break;
             case "first_application_by_the_author":
               setSoundRecordingData({
@@ -129,7 +127,6 @@ function FifthStep({ setStep }) {
                 first_published_edition_of_work: "0",
                 changed_version_of_the_work: "0",
               });
-              console.log(soundRecordingData, "2");
               break;
             case "changed_version_of_the_work":
               setSoundRecordingData({
@@ -138,7 +135,6 @@ function FifthStep({ setStep }) {
                 first_application_by_the_author: "0",
                 first_published_edition_of_work: "0",
               });
-              console.log(soundRecordingData, "3");
               break;
           }
           setStep(6);

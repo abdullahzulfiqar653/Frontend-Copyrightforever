@@ -20,7 +20,6 @@ function ThirdStep({ setStep }) {
   });
   const onChange = (e) => {
     setDatee({ ...date, [e.target.name]: e.target.value });
-    console.log(date);
   };
 
   return (
@@ -188,7 +187,6 @@ function ThirdStep({ setStep }) {
           //     date_of_authorship: String(a),
           //   });
           setStep(4);
-          console.log(virtualArtData);
         }}
         variant="contained"
         color="primary"

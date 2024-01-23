@@ -21,7 +21,6 @@ function PaymentScreen() {
   const id = state.auth.id;
   const formName = state.auth.formName;
   const date = state.auth.date;
-  console.log(id, formName);
   // use this id where you want
   
   useEffect(() => {
@@ -44,15 +43,13 @@ function PaymentScreen() {
   };
 
   const paying = async (details) => {
-        const exact_details = details.purchase_units[0].payments.captures[0]
-    
+    const exact_details = details.purchase_units[0].payments.captures[0]
     const form_id = id;
-    console.log(form_id, "aaaaaaa this is form id")
-        const payment_order_id = details.id
-        const amount_paid = exact_details.amount.value
-        const date_time = exact_details.create_time
-        const paid = exact_details.final_capture
-        const transaction_id = exact_details.id
+    const payment_order_id = details.id
+    const amount_paid = exact_details.amount.value
+    const date_time = exact_details.create_time
+    const paid = exact_details.final_capture
+    const transaction_id = exact_details.id
     const body = JSON.stringify({
             formName,
             form_id,
@@ -77,11 +74,8 @@ function PaymentScreen() {
           );
           if (res.data.success) {
             dispatch(load_user());
-            console.log("user loaded")
             dispatch(savingId(show))
-            console.log("user showed")
             setLoading(false)
-            console.log("loading false")
             setTimeout(function () {
               alert(
                 "Dear " + details.payer.name.given_name + '\n' +
@@ -101,7 +95,6 @@ function PaymentScreen() {
 
   const onApprove = (data, actions) => {
     actions.order.capture().then(function (details) {
-      console.log(details);
       setLoading(true)
       if (details.status === 'COMPLETED') {
               paying(details);

@@ -53,7 +53,6 @@ export const login = (email, password) => async (dispatch) => {
   };
 
   const body = JSON.stringify({ email, password });
-  console.log(body);
   try {
     const res = await axios.post(
       REQUEST_URL + `/auth/jwt/create/`,
@@ -66,7 +65,6 @@ export const login = (email, password) => async (dispatch) => {
     });
     dispatch(load_user());
   } catch (error) {
-    console.log(error);
     dispatch({
       error: error.response,
       type: types.LOGIN_FAIL,
@@ -85,7 +83,6 @@ export const signup =
       },
     };
     const body = JSON.stringify({ name, email, password, re_password });
-    console.log(body);
     await axios
       .post(REQUEST_URL + `/auth/users/`, body, config)
       .then((res) => {
@@ -117,7 +114,6 @@ export const update_profile =
       },
     };
     const body = JSON.stringify({ phone, address, state, postcode });
-    console.log(body);
     try {
       const res = await axios.put(
         REQUEST_URL + `/api/user/update`,
@@ -158,7 +154,6 @@ export const load_user = () => async (dispatch) => {
         payload: res.data,
       });
     } catch (error) {
-      console.log(error);
       dispatch({
         error: error.response,
         type: types.USER_LOADED_FAIL,

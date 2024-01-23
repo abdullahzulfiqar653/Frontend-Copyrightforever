@@ -21,7 +21,6 @@ function ThirdStep({ setStep }) {
   });
   const onChange = (e) => {
     setDatee({ ...date, [e.target.name]: e.target.value });
-    console.log(date);
   };
   return (
     <div>
@@ -185,7 +184,6 @@ function ThirdStep({ setStep }) {
       <Button
         onClick={() => {
           setStep(4);
-          console.log(date);
         }}
         variant="contained"
         color="primary"

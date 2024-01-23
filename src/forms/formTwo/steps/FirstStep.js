@@ -133,7 +133,6 @@ function FirstStep({ setStep, setStart }) {
         </Button>
         <Button
           onClick={() => {
-            console.log(literaryWorksData);
             setStep(2);
           }}
           variant="contained"

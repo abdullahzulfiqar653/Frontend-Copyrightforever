@@ -25,8 +25,6 @@ function SecondStep({ setStep }) {
   // 	setValue(event.target.value);
   // };
 
-  console.log(virtualArtData, "satte");
-
   return (
     <div>
       <h3>About the Author</h3>
@@ -353,7 +351,6 @@ function SecondStep({ setStep }) {
       </Button>
       <Button
         onClick={() => {
-          console.log(virtualArtData);
           setStep(3);
         }}
         variant="contained"

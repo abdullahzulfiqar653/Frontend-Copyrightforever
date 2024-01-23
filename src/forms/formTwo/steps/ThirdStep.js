@@ -174,7 +174,6 @@ function ThirdStep({ setStep }) {
       <Button
         onClick={() => {
           setStep(4);
-          console.log(literaryWorksData);
         }}
         variant="contained"
         color="primary"

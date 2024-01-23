@@ -69,7 +69,6 @@ function SeventhStep({ setStep }) {
       </h5>
       <Button
         onClick={() => {
-          console.log(virtualArtData);
           setStep(6);
         }}
         variant="contained"

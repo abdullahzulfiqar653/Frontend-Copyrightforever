@@ -123,7 +123,6 @@ function FirstStep({ setStep, setStart }) {
         <Button
           onClick={() => {
             setStep(2);
-            console.log(virtualArtData, "userData");
           }}
           variant="contained"
           color="primary"

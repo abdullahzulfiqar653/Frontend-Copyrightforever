@@ -28,7 +28,6 @@ const LoginScreen = ({ login, isLoading, error }) => {
   };
 
   if (isAuthenticated === true) {
-    console.log("issssss authenticated: ", isLoading);
     history.goBack();
     // return <Redirect to="/" />;
   }

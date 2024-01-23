@@ -204,7 +204,6 @@ function SecondStep({ setStep }) {
 
       <Button
         onClick={() => {
-          console.log(literaryWorksData);
           setStep(1);
         }}
         variant="contained"

@@ -110,7 +110,6 @@ function FifthStep({ setStep }) {
       </Button>
       <Button
         onClick={() => {
-          console.log(valueTake);
           switch (String(valueTake)) {
             case "first_published_edition_of_work":
               setSerialWorkData({
@@ -119,7 +118,6 @@ function FifthStep({ setStep }) {
                 first_application_by_the_author: "0",
                 changed_version_of_the_work: "0",
               });
-              console.log(serialWorkData, "1");
               break;
             case "first_application_by_the_author":
               setSerialWorkData({
@@ -128,7 +126,6 @@ function FifthStep({ setStep }) {
                 first_published_edition_of_work: "0",
                 changed_version_of_the_work: "0",
               });
-              console.log(serialWorkData, "2");
               break;
             case "changed_version_of_the_work":
               setSerialWorkData({
@@ -137,7 +134,6 @@ function FifthStep({ setStep }) {
                 first_application_by_the_author: "0",
                 first_published_edition_of_work: "0",
               });
-              console.log(serialWorkData, "3");
               break;
           }
           setStep(6);
