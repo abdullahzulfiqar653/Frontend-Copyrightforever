@@ -1,1 +1,1 @@
-export const REQUEST_URL = `http://copyright.paradisecompetitions.be`;
+export const REQUEST_URL = `http://dev.copyrightforever.com`;
