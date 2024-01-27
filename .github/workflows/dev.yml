@@ -39,6 +39,6 @@ jobs:
           ssh target "\
             cd project/Frontend-Copyrightforever/ && \
             git pull && \
-            npm run build && \
+            /home/dev/.nvm/versions/node/v16.15.0/bin/npm run build && \
             cp -r ./build/* /var/www/copyrightforever/html/ && \
             echo \"$SUDO_PASSWORD\" | sudo -S systemctl reload nginx"
